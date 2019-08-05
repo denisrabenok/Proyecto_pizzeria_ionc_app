@@ -1,0 +1,53 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Resumen de Pago
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 no-padding>
+        <ion-item no-lines>
+            <ion-label no-margin><h1>Metodo de pago</h1></ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col col-12>
+        <ion-list>
+          <ion-item *ngFor="let card of cards ; index as i" no-lines padding-bottom>
+               <ion-label>
+                  <p><ion-img width="40" [src]="card.icon"></ion-img>
+                {{card.number}}</p>
+                <p>{{card.holder_name}}</p>
+                <p>{{card.expiry_month}}/{{card.expiry_year}}</p>
+                <ion-item no-padding no-lines>
+                  <p>Valor a pagar <span padding-left float-right>{{card.value | currency}}</span></p>
+                  <p *ngIf="card.installments != 0" color='blue'>Diferido a <span blue padding-left float-right>{{card.installments}} meses</span></p>
+                  <p *ngIf="card.installments === 0" color='blue'>Diferido a <span blue padding-left float-right>Al corriente</span></p>
+                </ion-item>
+
+            </ion-label>
+
+          </ion-item>
+
+
+        </ion-list>
+      </ion-col>
+    </ion-row>
+    <ion-col col-4>
+      <h6 text-center>Valor Total</h6>
+    </ion-col>
+    <ion-col col-12>
+      <h3 text-center>{{total_value| currency }}</h3>
+    </ion-col>
+    <ion-col col-12 padding-top class="flexcontainer">
+        <button center ion-button center round margin-top color="twitter" (tap)="pagar()">Pagar</button>
+      </ion-col>
+  </ion-grid>
+</ion-content>

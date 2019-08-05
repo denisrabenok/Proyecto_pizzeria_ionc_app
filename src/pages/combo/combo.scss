@@ -1,0 +1,96 @@
+page-combo {
+
+    .formato-logo{
+        width: 30%;
+        height: 25%;
+        display:block;
+        margin:auto;
+    }
+
+    .formato-main-card{
+        background-color: white;
+        border: 1px solid grey;
+        width: 90%;
+        height: 92%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    .color-card-second-left{
+        background-color: white;
+        border-right: 0.6px solid grey;
+        border-bottom: 0.6px solid grey;
+        border-left: 0px solid grey;
+        border-top: 0px solid grey;
+    }
+
+    .color-card-second-right{
+        background-color: white;
+        border-right: 0px solid grey;
+        border-bottom: 0.6px solid grey;
+        border-left: 0.6px solid grey;
+        border-top: 0px solid grey;
+    }
+
+    .formato-boton{
+        width: 90%;
+        height: 70%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+    
+    .formato-card{
+        width: 85%;
+        height: 80%;
+        align-items: center;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    .imagen-tamano{
+      width: 90%;
+      height: 100%;
+    }
+
+    .columna-space{
+        padding-right: 0%;
+        margin-right: 0%
+    }
+
+    .formato-span{
+        width: 100%;
+        color: red;
+        text-align:center;
+        margin-top: 9px;
+        margin-bottom: 0px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    .formato-span-secondary{
+        width: 100%;
+        font-size: 1.3em;
+        text-align: center;
+        color:rgba(0, 169, 93, 0.925) ;
+        margin-top: 5%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    .formato-span-terc{
+        width: 100%;
+        font-size: 0.8em;
+        text-align: center;
+        color:black ;
+        margin-top: 3px;
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+}

@@ -1,0 +1,35 @@
+
+<ion-menu side="left" id="authenticated" [content]="content">
+    <ion-header>
+      <ion-toolbar style= "background-color: rgb(190,29,62)">
+        <ion-grid class="sin-bordes" style= "background-color: rgb(190,29,62)">
+          <ion-row>
+            <ion-col col-4>
+                <div class="user-avatar">
+                  <img *ngIf="imagen == null" class="imgRedonda" src="../assets/imgs/avatar.png">
+                  <img *ngIf="imagen != null" class="imgRedonda" src="{{imagen}}">
+                </div>
+            </ion-col>
+            <ion-col Style="padding-top: 12%" col-8>
+              <h2 ion-text class="no-margin bold" style="color: #01DFA5">
+                {{nombre}}
+              </h2>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content no-padding>
+      <ion-list no-padding>
+        <button  menuClose class="text-1x; formato-contenido" *ngFor="let menuItem of appMenuItems" (click)="openPage(menuItem)" style= "background-color: rgb(190,29,62);">
+          <!-- <ion-icon item-left [name]="menuItem.icon" color="primary"></ion-icon> -->
+          <img class="img-formato" height="18px" width="20px" src="{{menuItem.icon}}"/>
+          <span ion-text class="span-formato" color="white">{{menuItem.title}}</span>
+        </button>
+      </ion-list>
+      <button no-padding class="formato-boton-salida" menuClose (click)="logout()">
+        CERRAR SESIÓN
+      </button>
+    </ion-content>
+  </ion-menu>
+  <ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

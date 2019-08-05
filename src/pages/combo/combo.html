@@ -1,0 +1,131 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <img float-center class="formato-logo" src="../assets/imgs/logotipon.png">
+  </ion-navbar>
+</ion-header>
+
+<ion-content paddingc class="cards-bg">
+  <ion-card *ngIf="combos.length == 0">
+    <ion-card-header>
+      No hay combos :(
+    </ion-card-header>
+    <ion-card-content>
+      Actualmente no contamos con combos promocionales en nuestro stock
+    </ion-card-content>
+  </ion-card>
+  <div class="formato-span-secondary">
+    <span>PROMOCIONES DE LA SEMANA</span><br>
+  </div>
+  <div class="formato-span-terc">
+    <span>Selecciona la promo para verla a detalle</span>
+  </div>
+  <ion-card no-padding class="formato-main-card">
+    <ion-grid>
+      <ion-row justify-content-center align-items-center>
+        <ion-col>
+          <ion-card class="formato-card color-card-second-left">
+            <div class="formato-span">
+                <span>MARTES</span>
+            </div>
+            <button class="formato-boton" ion-button clear small color="danger" icon-start
+              (click)="abrirModalMartes()">
+              <img src="../assets/imgs/Super-3x1.png">
+            </button>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card class="formato-card color-card-second-right">
+            <div class="formato-span">
+                <span>MIÉRCOLES</span>
+            </div>
+            <button class="formato-boton" ion-button clear small color="danger" icon-start
+              (click)="abrirModalMiercoles()">
+              <img src="../assets/imgs/Miercoles-tripleta.png">
+            </button>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row justify-content-center align-items-center>
+        <ion-col>
+          <ion-card class="formato-card color-card-second-left">
+            <div class="formato-span">
+                <span>JUEVES</span>
+            </div> 
+            <button class="formato-boton" ion-button clear small color="danger" icon-start
+              (click)="abrirModalJueves()">
+              <img src="../assets/imgs/Jueves-sorpresa.png">
+            </button>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card class="formato-card color-card-second-right">
+            <div class="formato-span">
+                <span>VIERNES</span>
+            </div>
+            <button class="formato-boton" ion-button clear small color="danger" icon-start
+              (click)="abrirModalMartes()">
+              <img src="../assets/imgs/Super-3x1.png">
+            </button>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <ion-card class="formato-card color-card-second-left">
+            <div class="formato-span">
+                <span>SÁBADO</span>
+            </div>
+            <button class="formato-boton" ion-button clear small color="danger" icon-start
+              (click)="abrirModalSabado()">
+              <img src="../assets/imgs/tetra-pack.png">
+            </button>
+          </ion-card>
+        </ion-col>
+        <ion-col>
+          <ion-card class="formato-card color-card-second-right">
+            <div class="formato-span">
+                <span>DOMINGO</span>
+            </div>
+            <button class="formato-boton" ion-button clear small color="danger" icon-start
+              (click)="abrirModalDomingo()">
+              <img class="imagen-tamano" src="../assets/imgs/promon-domingo.png">
+            </button>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+<!--
+  <ion-list *ngIf="combos.length > 0">
+    <ion-item *ngFor="let combo of combos">
+      <ion-card>
+        <img src="{{combo.IMAGEN_URL}}" />
+        <ion-card-content>
+          <ion-card-title>
+            {{combo.NOMBRE}}
+            <br>
+            <ion-icon name='logo-usd'>{{ combo.COSTO }}</ion-icon>
+          </ion-card-title>
+
+        </ion-card-content>
+        <ion-row no-padding>
+          <ion-col text-center>
+            <button id="{{combo.id}}" ion-button clear small color="danger" icon-start
+              (click)="crear(combo.NOMBRE, combo.COSTO, combo)">
+              <ion-icon name='cart'></ion-icon>
+              Ordenar
+            </button>
+            <button id="detalle_{{combo.id}}" ion-button clear small color="danger" icon-start (click)="detalle(combo)">
+              <ion-icon name='disc'></ion-icon>
+              Detalle
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content> -->

@@ -1,0 +1,9 @@
+{
+  "name": "google",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "ionic-angular",
+  "pro_id": "f54b9915",
+  "id": "f54b9915"
+}

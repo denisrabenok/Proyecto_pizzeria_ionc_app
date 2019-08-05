@@ -1,0 +1,118 @@
+
+
+
+<ion-content >
+
+
+       <!-- LISTA DE PIZZAS  -->
+    <ion-list >
+
+      <ion-item-divider sticky>
+          <h1 ion-text no-margin  text-right>Total $ {{total }}</h1>
+      </ion-item-divider>
+
+      <ion-item *ngFor="let pizza of pizzas">
+          <div class="card round">
+
+              <ion-list no-margin>
+                <ion-item class="primary-bg" >
+                  <ion-avatar item-start>
+                    <img src="assets/imgs/pizza.png">
+                  </ion-avatar>
+                  <h2  ion-text class="text-white bold" >{{pizza.nombre}}</h2>
+                  <p ion-text color="white" ><strong>Tamaño: </strong> {{pizza.tamano}}</p>
+                </ion-item>
+              </ion-list>
+
+              <ion-item>
+
+                  <ion-row center >
+
+                      <p item-start ion-text color="secondary_red" ><strong>Cantidad: </strong> </p>    
+
+                      <ion-col width-80 text-center>{{pizza.cantidad}}</ion-col>
+
+                  </ion-row>
+              </ion-item>
+
+
+          </div>
+      </ion-item>
+
+    </ion-list>
+
+
+    <ion-list>
+
+        <ion-item *ngFor="let combo of combos">
+
+            <div class="card round" >
+
+                <ion-list no-margin>
+                  <ion-item class="primary-bg">
+                    <ion-avatar item-start>
+                      <img src="{{combo.imagenUrl}}">
+                    </ion-avatar>
+                    <h2 ion-text class="text-white bold ">{{combo.nombre}}</h2>
+
+                  </ion-item>
+                </ion-list>
+                <ion-item>
+                    <ion-row center>
+                        <p item-start ion-text color="secondary_red" ><strong>Cantidad: </strong> </p>
+
+
+                        <ion-col width-20 text-center>{{combo.cantidad}}</ion-col>
+
+
+                    </ion-row>
+
+                </ion-item>
+
+
+            </div>
+        </ion-item>
+
+      </ion-list>
+
+
+
+    <ion-list>
+
+        <ion-item *ngFor="let adicional of adicionales">
+
+            <div class="card round" >
+
+                <ion-list no-margin>
+                  <ion-item class="primary-bg">
+                    <ion-avatar item-start>
+                      <img src="{{adicional.imagenUrl}}">
+                    </ion-avatar>
+                    <h2 ion-text class="text-white bold ">{{adicional.nombre}}</h2>
+
+                  </ion-item>
+                </ion-list>
+                <ion-item>
+                    <ion-row center>
+                        <p item-start ion-text color="secondary_red" ><strong>Cantidad: </strong> </p>
+
+
+                        <ion-col width-20 text-center>{{adicional.cantidad}}</ion-col>
+
+
+                    </ion-row>
+
+                </ion-item>
+
+
+            </div>
+        </ion-item>
+
+      </ion-list>
+
+
+
+
+
+
+</ion-content>

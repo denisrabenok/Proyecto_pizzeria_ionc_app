@@ -1,0 +1,33 @@
+<!--
+  Generated template for the ListLocalesPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+          <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button>
+        <ion-title>
+            Locales
+        </ion-title>
+      </ion-navbar>
+
+  </ion-header>
+
+
+<ion-content >
+    <ion-list >
+        <ion-item *ngFor="let local of locales" >
+            <ion-thumbnail item-start (click)="seleccionar_direccion(local)">
+                <img src={{local.IMAGEN}}>
+              </ion-thumbnail>
+              <h2>Local: {{local.SECTOR}}</h2>
+              <p>Apertura: {{local.APERTURA}} | Cierre: {{local.CIERRE}}</p>
+        </ion-item>
+
+      </ion-list>
+
+</ion-content>

@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+page-favoritas {
+    
+    .formato-logo{
+        width: 30%;
+        height: 25%;
+        display:block;
+        margin:auto;
+    }
+    
+    .imagen-boton{
+      width: 85%;
+       height: 80%;
+    }
+    
+    .formato-main-card{
+      background-color: white;
+      border: 1px solid grey;
+      width: 95%;
+      height: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      float: none;
+      border-radius: 0px! important; 
+    }
+
+    .formato-card-terceary{
+      background-color: white;
+      border: 1px solid grey;
+      width: 95%;
+      height: 95%;
+      margin-left: auto;
+      margin-right: auto;
+      float: none;
+      margin-bottom: 0%;
+      padding-bottom: 0%;
+    }
+    
+      .formato-span-secondary{
+        width: 100%;
+        font-size: 1.3em;
+        text-align: center;
+        color:rgba(0, 169, 93, 0.925) ;
+        margin-top: 18px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+    
+    .imagen-pizza-tamano{
+      padding-top: 0;
+      margin-top: 0%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 80%;
+      height: 40%;
+    }
+    
+    .formato-fuente{
+      margin-top: -7%;
+      font-size: 100%;
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+      text-transform: uppercase;
+      margin-bottom: 0px;
+      font-weight: 600;
+      margin-left: 2%;
+      margin-right: 2%;
+      padding-left: 0%;
+      padding-right: 0%;
+      padding-bottom: 0px;
+    }
+    
+    .formato-fuente-second{
+      margin-top: 0;
+      margin-bottom: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      color: black;
+      font-size: 0.7em;
+      font-family: 'Roboto', sans-serif;
+      text-align: center;
+    }
+    
+    .imagen-tamano{
+      width: 90%;
+      height: 100%;
+    }
+}

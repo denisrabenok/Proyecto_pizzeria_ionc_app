@@ -1,0 +1,79 @@
+<ion-header>
+</ion-header>
+<ion-content padding>
+ <!--  <div class="container">
+    <ul>
+      <li *ngFor="let estado of estados">
+        <div>
+          <div class="title">{{estado.nombre}}</div>
+          <div class="info">{{estado.descripcion}}</div>
+        </div> <span class="number"><span>{{estado.hora}}</span></span>
+      </li>
+    </ul>
+  </div>
+
+  <ion-content padding> -->
+  <ion-grid style="margin-left: auto; margin-right: auto;">
+    <ion-row style="margin-left: auto; margin-right: auto;">
+      <ion-col col-5>
+        <ion-card class="card-formato">
+          <img *ngIf="estados.length >= 1" src="../assets/imgs/boton_pedido_recibido_activo.png">
+          <img *ngIf="estados.lenght < 1" src="../assets/imgs/boton_pedido_recibido_activo.png">
+        </ion-card>
+      </ion-col>
+      <ion-col style="display: flex; align-items: center; margin-left: -3%; margin-right: -3%;" col-2>
+        <img *ngIf="estados.length >= 2" style="width: 125%; height: 5%; margin-top: 50%;  float:none; margin-left: 0%; margin-right: 0%;"
+          src="../assets/imgs/linea.png">
+          <img *ngIf="estados.length < 2" style="width: 125%; height: 5%; margin-top: 50%;  float:none; margin-left: 0%; margin-right: 0%;"
+          src="../assets/imgs/linea-inactiva.png">
+      </ion-col>
+      <ion-col col-5>
+        <ion-card class="card-formato">
+          <img *ngIf="estados.length >= 2" src="../assets/imgs/boton_preparando_masa_activo.png">
+          <img *ngIf="estados.length < 2" src="../assets/imgs/boton_ingredientes_activo.png">
+
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-left: auto; margin-right: auto;">
+      <ion-col style="display: flex; align-items: center;" col-12>
+        <img *ngIf="estados.length >= 3" class="claas-union" src="../assets/imgs/union.png">
+        <img *ngIf="estados.length < 3" class="claas-union" src="../assets/imgs/union-inactiva.png">
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-left: auto; margin-right: auto;">
+      <ion-col col-5>
+        <ion-card class="card-formato">
+          <img *ngIf="estados.length >= 3" src="../assets/imgs/boton_ingredientes_activo.png">
+          <img *ngIf="estados.length < 3" src="../assets/imgs/boton_ingredientes.png">
+        </ion-card>
+      </ion-col>
+      <ion-col style="display: flex; align-items: center; margin-left: -3%; margin-right: -3%;" col-2>
+        <img *ngIf="estados.length >= 4" style="width: 125%; height: 5%; margin-top: 50%;  float:none; margin-left: 0%; margin-right: 0%;"
+          src="../assets/imgs/linea.png">
+          <img *ngIf="estados.length < 4" style="width: 125%; height: 5%; margin-top: 50%;  float:none; margin-left: 0%; margin-right: 0%;"
+          src="../assets/imgs/linea-inactiva.png">
+      </ion-col>
+      <ion-col col-5>
+        <ion-card class="card-formato">
+          <img *ngIf="estados.length >= 4" src="../assets/imgs/boton_horno_activo.png">
+          <img *ngIf="estados.length < 4" src="../assets/imgs/boton_horno.png">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-left: auto; margin-right: auto;">
+      <ion-col style="display: flex; align-items: center;" col-12>
+        <img *ngIf="estados.length >= 5" class="claas-union" src="../assets/imgs/union.png">
+        <img *ngIf="estados.length < 5" class="claas-union" src="../assets/imgs/union-inactiva.png">
+      </ion-col>
+    </ion-row>
+    <ion-row style="margin-left: auto; margin-right: auto;">
+      <ion-col col-5>
+        <ion-card class="card-formato">
+          <img *ngIf="estados.length >= 5" src="../assets/imgs/boton_pedido_en_camino_activo.png">
+          <img *ngIf="estados.length < 5" src="../assets/imgs/boton_pedido_en_camino.png">
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid> 
+</ion-content>

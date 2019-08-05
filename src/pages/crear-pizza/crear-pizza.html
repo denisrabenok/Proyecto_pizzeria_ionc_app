@@ -1,0 +1,44 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>
+        <ion-row align-items-center>
+            <ion-col width-50>
+                <span float-left ion-text>Arma tu Pizza</span>
+            </ion-col>
+            <ion-col width-50>
+                <button  [hidden]="tabActivo != 'ingredientes'"    float-right color="green" ion-button (click)="siguiente()">Siguiente</button>
+            </ion-col>
+        </ion-row>
+    </ion-title>
+  </ion-navbar>
+  <!--  -->
+  <ion-toolbar padding color="secondary_red">
+    <h2 ion-text no-margin class="text-white" text-right>Total $ {{pizza.costo | number : '1.2-2' }}</h2>
+    <ion-item>
+      <ion-label>Tamaño</ion-label>
+      <ion-select [(ngModel)]="tamanoElegido" #tamanoSelect (ionChange)="cambioTamano(tamanoSelect.value)">
+        <ion-option *ngFor="let tamano of tamanos" [value]="tamano">{{tamano.nombre}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+      <ion-tabs #tabs tabsPlacement='top' selectedIndex="1" (ionChange)="tabChange()">
+          <ion-slides (ionSlideWillChange)="slideChange()"  class="swiper-no-swiping">
+            <ion-slide>
+                <ion-tab  [root]="masasTab" tabTitle="Tipo de Masa"   [enabled]="masasEnabled"   [rootParams]="masasParams"></ion-tab>
+            </ion-slide>
+            <ion-slide>
+                <ion-tab [root]="bordesTab" tabTitle="Tipo de Borde" [enabled]="bordesEnabled"  [rootParams]="bordesParams"></ion-tab>
+            </ion-slide>
+            <ion-slide>
+                <ion-tab [root]="ingredientesTab" tabTitle="Ingredientes"  [enabled]="ingredientesEnabled"   [rootParams]="ingredientesParams"></ion-tab>
+            </ion-slide>
+          </ion-slides>
+        </ion-tabs>
+</ion-content>

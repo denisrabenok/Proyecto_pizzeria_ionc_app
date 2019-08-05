@@ -1,0 +1,61 @@
+<!--
+  Generated template for the PerfilPage page.
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title> Perfil </ion-title>
+    <ion-buttons right>
+        <button  ion-button icon-only (click)=" gotoEditarPefil()">
+            <ion-icon name="create" item-right></ion-icon>
+        </button>
+      </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+    <div class="user-photo" padding-top>
+      <ion-avatar>
+        <img   *ngIf="datosUsuario.imagenUrl == null" src="https://t4.ftcdn.net/jpg/02/15/84/43/240_F_215844325_ttX9YiIIyeaR7Ne6EaLLjMAmy4GvPC69.jpg">
+        <img   *ngIf="datosUsuario.imagenUrl != null" [src]="datosUsuario.imagenUrl">
+      </ion-avatar>
+    </div>
+
+    <ion-list>
+        <ion-item>
+          <ion-icon name="nombres" slot="start"></ion-icon>
+          <ion-label>
+            <p><strong> Nombres y Apellidos</strong></p>
+            <h2>{{datosUsuario.nombres}} {{datosUsuario.apellidos}}</h2>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-icon name="correo" slot="start"></ion-icon>
+          <ion-label >
+            <p><strong>Correo</strong></p>
+            <h2>{{datosUsuario.correo}}</h2>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-icon name="cedula" slot="start"></ion-icon>
+            <ion-label >
+              <p><strong>Cédula</strong></p>
+              <h2>{{datosUsuario.cedula}}</h2>
+            </ion-label>
+          </ion-item>
+          <ion-item>
+            <ion-icon name="telefono" slot="start"></ion-icon>
+            <ion-label >
+              <p><strong>Teléfono</strong> </p>
+              <h2>{{datosUsuario.telefono}}</h2>
+            </ion-label>
+          </ion-item>
+      </ion-list>
+</ion-content>

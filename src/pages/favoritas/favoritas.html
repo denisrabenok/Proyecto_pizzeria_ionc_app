@@ -1,0 +1,94 @@
+
+<ion-header>
+    <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <img class="formato-logo" src="../assets/imgs/logo.png">
+    </ion-navbar>
+  </ion-header>
+  <ion-content paddingc class="cards-bg">
+      <ion-card no-padding class="formato-main-card">
+    <div class="formato-span-secondary">
+      <span>PIZZAS FAVORITAS</span><br>
+    </div>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let pizza of pizzas" col-6>
+          <ion-card class="formato-card-terceary">
+              <button *ngIf="pizza.favorita == 1" id="{{pizza.id}}" ion-button clear small color="primary" icon-start (click)="favorito(pizza)">
+                  <ion-icon name='heart'></ion-icon>
+                </button>
+              <button *ngIf="pizza.favorita == 0" id="{{pizza.id}}" ion-button clear small color="primary" icon-start (click)="favorito(pizza)">
+                  <ion-icon name='heart-outline'></ion-icon>
+                </button>
+                <button float-right no-padding style="color: #1ABC9C; width: 25%; height: 25%; margin-top:0%; margin-right:0%;"  ion-button clear small icon-start (click)="ordenar(pizza)">
+                    <img class="imagen-boton" src="../assets/imgs/carritoc.png"/>
+                  </button>
+            <img *ngIf="pizza.imgUrl !=null" class="imagen-pizza-tamano" src="{{pizza.imgUrl}}" />
+            <img *ngIf="pizza.imgUrl == null" class="imagen-pizza-tamano" src="assets/imgs/pizza-uno.png" />
+            <ion-card-content>
+              <ion-card-title class="formato-fuente">
+                {{pizza.nombre}}
+              </ion-card-title>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+
+<!--
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+  <ion-title>Pizzas Favoritas</ion-title>
+</ion-navbar>
+</ion-header>
+
+<ion-content paddingc class="cards-bg">
+  <ion-list >
+    <ion-item  *ngFor="let pizza of pizzas">
+        <ion-card>
+        <img src="{{pizza.imgUrl}}"/>
+        <ion-card-content>
+          <ion-card-title>
+            {{pizza.nombre}}
+          </ion-card-title>
+          <p>
+            {{pizza.descripcion}}
+          </p>
+          <p>
+            {{pizza.costo}}
+          </p>
+        </ion-card-content>
+        <ion-row no-padding>
+          <ion-col *ngIf="pizza.favorita == 1">
+            <button id="{{pizza.id}}" ion-button clear small color="danger" icon-start (click)="favorito(pizza)">
+              <ion-icon name='heart'></ion-icon>
+              Favorita
+            </button>
+          </ion-col>
+          <ion-col *ngIf="pizza.favorita == 0">
+            <button id="{{pizza.id}}" ion-button clear small color="danger" icon-start (click)="favorito(pizza)">
+              <ion-icon  name='heart-outline'></ion-icon>
+              Favorita
+            </button>
+          </ion-col>
+          <ion-col text-center></ion-col>
+          <ion-col text-left>
+            <button id="{{pizza.id}}" ion-button clear small color="danger" icon-start (click)="ordenar(pizza)">
+              <ion-icon name='cart'></ion-icon>
+              Ordenar
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>      
+    </ion-item>
+  </ion-list>-->
+  <h4 *ngIf="pizzas.length == 0" text-center>No tienes Pizzas favoritas</h4>
+</ion-card>
+</ion-content>

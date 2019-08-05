@@ -1,0 +1,154 @@
+<!--
+  Generated template for the HistorialPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Historial de Pagos</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content>
+
+
+
+<ion-item *ngFor="let v of ventas">
+
+<ion-grid>
+
+<ion-row>
+    <ion-col>
+      <strong>Productos </strong>
+    </ion-col>
+</ion-row>
+
+<ion-row>
+    <ion-col>
+
+
+ <!-- LISTA DE PIZZAS  -->
+  <ion-list>
+      <ion-item *ngFor="let pizza of v.pizzasA"  color = "transparent">
+          <div class="card round">
+              <ion-list no-margin>
+                <ion-item class="primary-bg" >
+                  <ion-avatar item-start>
+                    <img src="assets/imgs/pizza.png">
+                  </ion-avatar>
+                  <h2  *ngIf="pizza.nombre != null "  ion-text class="text-white bold" >{{pizza.nombre}}</h2>
+                  <p ion-text color="white" ><strong>Tamaño: </strong> {{pizza.tamano}}</p>
+                  <p ion-text color="white" ><strong>Cantidad: </strong> {{pizza.cantidad}}</p>
+                  <p ion-text color="white" ><strong>Precio: </strong> ${{pizza.costo * pizza.cantidad | number : '1.2-2'}}</p>
+                </ion-item>
+              </ion-list>
+
+              <ion-row >
+                  <ion-col width-60>
+
+                      <div padding>
+
+                          <h5   ion-text color="secondary_red"><strong>Masa: </strong> {{pizza.masa}}</h5>
+                          <h5   ion-text color="secondary_red"><strong>Borde: </strong> {{pizza.borde}}</h5>
+                        </div>
+                  </ion-col>
+
+                  <ion-col width-60>
+                      <div padding>
+                          <h5   ion-text color="secondary_red"><strong>Ingredientes: </strong></h5>
+                          <h5  *ngFor="let ingrediente of pizza.ingredientes" ion-text color="secondary_red">
+                            {{ingrediente}}
+                          </h5>
+                        </div>
+                  </ion-col>
+              </ion-row>
+          </div>
+      </ion-item>
+    </ion-list>
+
+    <ion-list>
+
+      <ion-item *ngFor="let combo of v.combosA">
+
+          <div class="card round" >
+
+              <ion-list no-margin>
+                <ion-item class="primary-bg">
+                  <ion-avatar item-start>
+                    <img src="{{combo.imagenUrl}}">
+                  </ion-avatar>
+                  <h2 ion-text class="text-white bold">{{combo.nombre}}</h2>
+                  <h2 ion-text class="text-white bold"><strong>Cantidad: {{combo.cantidad}}</strong></h2>
+                  <h2 ion-text class="text-white bold"><strong>Precio: ${{combo.costo * combo.cantidad | number : '1.2-2' }}</strong></h2>
+                </ion-item>
+              </ion-list>
+          </div>
+      </ion-item>
+
+    </ion-list>
+
+    <ion-list>
+
+        <ion-item *ngFor="let adicional of v.adicionalesA">
+
+            <div class="card round" >
+
+                <ion-list no-margin>
+                  <ion-item class="primary-bg">
+                    <ion-avatar item-start>
+                      <img src="{{adicional.imagenUrl}}">
+                    </ion-avatar>
+                    <h2 ion-text class="text-white bold">{{adicional.nombre}}</h2>
+                    <h2 ion-text class="text-white bold"><strong>Cantidad: {{adicional.cantidad}}</strong></h2>
+                    <h2 ion-text class="text-white bold"><strong>Precio: ${{adicional.costo * adicional.cantidad | number : '1.2-2' }}</strong></h2>
+                  </ion-item>
+                </ion-list>
+            </div>
+        </ion-item>
+      </ion-list>
+
+      </ion-col>
+    </ion-row>
+
+
+
+
+    <ion-row>
+      <ion-col>
+        <strong> Tarjeta </strong>
+      </ion-col>
+      <ion-col>
+        {{ v.tarjetaV }}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+       <strong color="black">  Pagado </strong>
+      </ion-col>
+      <ion-col color="black">
+        {{ v.valor | currency}}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+       <strong >  Fecha </strong>
+      </ion-col>
+      <ion-col>
+        {{ v.fecha | date}}
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
+
+  </ion-item>
+
+
+</ion-content>

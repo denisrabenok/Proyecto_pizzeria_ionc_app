@@ -1,0 +1,35 @@
+<!--
+  Generated template for the ViewMapPage page.
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title> {{ ubication.NOMBRE }} </ion-title>
+    <ion-buttons right>
+      <button ion-button *ngIf="type_page === 'view'" (click)="confirmarBorrado()" item-end icon-start>
+        <ion-icon name="trash"></ion-icon>
+        Borrar
+      </button>
+      <button ion-button outline *ngIf="type_page === 'set'" (click)="guardarForm()">Guardar</button>
+      <button ion-button outline *ngIf="type_page === 'cobertura' && coordenada !== null" (click)="confirmarDireccion()">Confirmar</button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <div id="map_canvas"></div>
+  <ion-fab left bottom *ngIf="type_page === 'cobertura'">
+    <button ion-fab color="green">
+      <ion-icon name="ios-map"></ion-icon>
+    </button>
+    <ion-fab-list side="top" *ngIf="ubications_list.length > 0">
+        <button *ngFor="let ubication of ubications_list" (click)="setMarkerDirection(ubication)">
+          {{ ubication.NOMBRE }}
+        </button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

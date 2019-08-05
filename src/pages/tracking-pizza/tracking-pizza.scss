@@ -1,0 +1,89 @@
+page-tracking-pizza {
+  @import url("https://fonts.googleapis.com/css?family=Ubuntu:300,400,600,700");
+  .content {
+      height: 100vh;
+     
+      }
+      
+  .container ul {
+      margin: 0;
+      margin-top: 30px;
+      list-style: none;
+      position: relative;
+      color: #000;
+      font-size: 13px;
+  }
+  .container ul:before {
+      content: "";
+      width: 1px;
+      height: 100%;
+      left : 60px;
+      position: absolute;
+      border-left: 2px solid #000;
+  }
+  .container ul li {
+      position: relative;
+      margin-left: 30px;
+      background-color: rgba(255, 255, 255, 0.2);
+      padding: 14px;
+      border-radius: 6px;
+      width: 250px;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.12), 0 2px 2px rgba(0, 0, 0, 0.08);
+  }
+  .container ul li:not(:first-child) {
+      margin-top: 60px;
+  }
+  
+  .container ul li > span {
+      width: 2px;
+      height: 100%;
+      left: -40px;
+      top: 0;
+      position: absolute;
+  }
+
+  /* circulo */
+  .container ul li > span:after {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      border: 2px solid #000;
+      position: absolute;
+      background: #4c6df9;
+      left: 25px;
+      top: 0;
+  }
+  .container ul li span:after {
+      top: 100%;
+  }
+  .container ul li > div {
+      margin-left: 10px;
+  }
+  .container div .title, .container div .type {
+      font-weight: 600;
+      font-size: 12px;
+  }
+  .container div .info {
+      font-weight: 300;
+  }
+  .container div > div {
+      margin-top: 5px;
+  }
+  .container span.number {
+      height: 50%;
+  }
+  .container span.number span {
+      position: absolute;
+      font-size: 20px;
+      left: -35px;
+      font-weight: bold;
+  }
+  .container span.number span:first-child {
+      top: 50%;
+  }
+  .container span.number span:last-child {
+      top: 100%;
+  }
+
+}

@@ -1,0 +1,24 @@
+page-perfil {
+
+    .user-photo ion-avatar {
+        margin: 0 auto;
+        width: 120px;
+        height: 120px;
+        margin-bottom: 5vh;
+      }
+
+    ion-list {
+        margin-top: 24px;
+        p {
+          font-size: 12px;
+          font-weight: 400;
+          padding-bottom: 4px;
+          color:  #BE1D3E !important;
+        };
+        h2 {
+          font-weight: 400;
+          opacity: .5;
+        }
+      }
+
+}

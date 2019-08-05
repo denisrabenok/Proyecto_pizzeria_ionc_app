@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      <img float-center class="formato-logo" src="../assets/imgs/logotipon.png">
+    </ion-title>
+    <!--<ion-buttons end>
+      <button ion-button tappable (click)="carrito()">
+        <ion-icon id="carrito" name="cart"></ion-icon>
+         <img width="25px" height="25px" src="carro-compras.png"/> 
+      </button> 
+    </ion-buttons>-->
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <img class="banner" src="../../assets/imgs/banneride.png" />
+  <ion-grid no-padding>
+    <ion-row>
+      <ion-col>
+        <ion-card class="boton" (click)="combos()" style="background-color: transparent;">
+          <img class="formato-imagen" src="../../assets/imgs/boton1.png" />
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="boton" (click)="tradicionales()">
+          <img class="formato-imagen" src="../../assets/imgs/boton2.png" />
+        </ion-card>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-card class="boton" (click)="ordenarPizza()">
+          <img class="formato-imagen" src="../../assets/imgs/boton3.png" />
+        </ion-card>
+      </ion-col>
+      <ion-col>
+        <ion-card class="boton" (click)="favoritas()">
+          <img class="formato-imagen" src="../../assets/imgs/boton4.png" />
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+</ion-content>

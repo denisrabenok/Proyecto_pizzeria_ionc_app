@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Rastrea tu Pedido
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <ul>
+      <li *ngFor="let estado of estados">
+        <div>
+          <div class="title">{{estado.nombre}}</div>
+          <div class="info">{{estado.descripcion}}</div>
+        </div> <span class="number"><span>{{estado.hora}}</span></span>
+      </li>
+    </ul>
+  </div>
+</ion-content>

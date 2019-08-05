@@ -1,0 +1,38 @@
+page-reclamos-sugerencias {
+
+    .input-cover{
+        border: 3px;
+        border-radius: 10px;
+        border-color: #3366ff;
+        border-style: inset;
+        box-sizing: border-box;         /* For IE and modern versions of Chrome */
+        -moz-box-sizing: border-box;    /* For Firefox                          */
+        -webkit-box-sizing: border-box; /* For Safari                           */
+    }
+
+    #enviar{
+        margin-top: 5%;
+        align-self: baseline;
+    }
+
+    textarea.text-input.text-input-ios{
+        height: 95%;
+        box-sizing: border-box;         /* For IE and modern versions of Chrome */
+        -moz-box-sizing: border-box;    /* For Firefox                          */
+        -webkit-box-sizing: border-box; /* For Safari                           */
+    }
+
+    .scroll-content{
+        display: inline-block;
+    }
+
+    #rc{
+        padding: 5px;
+        width:100%;
+        height:50%;
+        box-sizing: border-box;         /* For IE and modern versions of Chrome */
+        -moz-box-sizing: border-box;    /* For Firefox                          */
+        -webkit-box-sizing: border-box; /* For Safari                           */
+    }
+
+}

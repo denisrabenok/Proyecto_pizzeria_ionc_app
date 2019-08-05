@@ -1,0 +1,95 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <img class="formato-logo" src="../assets/imgs/logo.png">
+  </ion-navbar>
+</ion-header>
+<ion-content paddingc class="cards-bg">
+  <div class="formato-span-secondary">
+    <span>PIZZAS GOURMET</span><br>
+  </div><br>
+  <div class="formato-span-terc">
+    <span>Selecciona el tamaño de la pizza</span><br>
+</div>
+<ion-row radio-group [(ngModel)]="tamanoElegido">
+    <ion-col *ngFor="let tamano of tamanos" col-4>
+        <div float-left no-padding style="width: 100%;" color="secondary_white">
+            <ion-radio style="padding-top:0%; padding-bottom: 0%; margin-left:8%;" [value]="tamano" #tamanoSelect
+                (ionSelect)="cambiarPrecio()">
+                {{tamano.nombre}}
+            </ion-radio>
+            <ion-label style="margin-top: -17%; margin-bottom: 0;" class="formato-span-terc">{{tamano.nombre}}
+            </ion-label>
+        </div>
+    </ion-col>
+</ion-row>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let pizza of pizzas" col-6>
+        <ion-card class="formato-card-terceary">
+            <button *ngIf="pizza.favorita == 1" id="{{pizza.id}}" ion-button clear small color="primary" icon-start (click)="favorito(pizza)">
+                <ion-icon name='heart'></ion-icon>
+              </button>
+            <button *ngIf="pizza.favorita == 0" id="{{pizza.id}}" ion-button clear small color="primary" icon-start (click)="favorito(pizza)">
+                <ion-icon name='heart-outline'></ion-icon>
+              </button>
+              <button float-right no-padding style="color: #1ABC9C; height: 15%; margin-top:0%; margin-right:0%;"  ion-button clear small icon-start (click)="ordenar(pizza)">
+                  <img class="imagen-boton" src="../assets/imgs/carrito.png"/>
+                </button>
+          <img class="imagen-pizza-tamano" src="{{pizza.imgUrl}}" />
+          <ion-card-content>
+            <ion-card-title class="formato-fuente">
+              {{pizza.nombre}}
+            </ion-card-title>
+            <ion-textarea no-padding class="formato-fuente-second" rows="3" cols="1" readonly value="{{pizza.descripcion}}">
+              </ion-textarea>
+              <span no-padding style="margin-left: 3%; font-size: 70%; margin-top: 0%; margin-bottom: 0%;" text-left>Desde</span>
+                  <span no-padding style="color: #1ABC9C; font-size: 110%; margin-top: 0%; margin-bottom: 0%;">$ {{pizza.costo}}</span>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <!--
+  <ion-list>
+    <ion-item *ngFor="let pizza of pizzas">
+      <ion-card color="innercard">
+        <img src="{{pizza.imgUrl}}" />
+        <ion-card-content>
+          <ion-card-title>
+            {{pizza.nombre}}
+          </ion-card-title>
+          <p>
+            {{pizza.descripcion}}
+          </p>
+          <p>
+            {{pizza.costo}}
+          </p>
+        </ion-card-content>
+        <ion-row no-padding>
+          <ion-col *ngIf="pizza.favorita == 1">
+            <button id="{{pizza.id}}" ion-button clear small color="primary" icon-start (click)="favorito(pizza)">
+              <ion-icon name='heart'></ion-icon>
+              Favorita
+            </button>
+          </ion-col>
+          <ion-col *ngIf="pizza.favorita == 0">
+            <button id="{{pizza.id}}" ion-button clear small color="primary" icon-start (click)="favorito(pizza)">
+              <ion-icon name='heart-outline'></ion-icon>
+              <strong>Favorita</strong>
+            </button>
+          </ion-col>
+          <ion-col text-center></ion-col>
+          <ion-col text-left>
+            <button id="{{pizza.id}}" ion-button clear small color="primary" icon-start (click)="ordenar(pizza)">
+              <ion-icon name='cart'></ion-icon>
+              <strong>Ordenar</strong>
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-item>
+  </ion-list>-->
+</ion-content>

@@ -1,0 +1,64 @@
+<ion-content class="animated fadeIn login auth-page inicio">
+  <div class="padding-contenido">
+    <!-- Logo -->
+    <div padding-horizontal text-center class="animated fadeInDown">
+      <div class="logo"></div>
+      <ion-img src="../assets/imgs/pizza.png"></ion-img>
+    </div><br>
+    <!-- Login form -->
+    <ion-item id="correo">
+      <ion-label>
+        <ion-icon name="mail" item-start class="icono-input"></ion-icon>
+      </ion-label>
+      <ion-input placeholder="Correo electrónico" type="email" [(ngModel)]="dataUsuario.CORREO" required></ion-input>
+    </ion-item><br>
+    <ion-item id="contrasena">
+      <ion-label>
+        <ion-icon name="lock" item-start class="icono-input"></ion-icon>
+      </ion-label>
+      <ion-input placeholder="Contraseña" type="{{type}}" [(ngModel)]="dataUsuario.CONTRASENA" required></ion-input>
+      <button *ngIf="!showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()">
+        <ion-icon>
+          <img src="../assets/imgs/eye-invisible.png" style="position: relative;  
+              top:3px;" height="22px" width="22px">
+        </ion-icon>
+      </button>
+      <button *ngIf="showPass" ion-button clear color="dark" type="button" item-right (click)="showPassword()">
+        <ion-icon>
+          <img src="../assets/imgs/eye-visible.png" style="position: relative;
+                            top:3px;" height="22px" width="22px">
+        </ion-icon>
+      </button>
+    </ion-item><br>
+    <div>
+      <button ion-button icon-start block class="boton-session" tappable (click)="login()">
+        <ion-icon></ion-icon>
+        Iniciar Sesión
+      </button>
+    </div>
+    <p text-right ion-text color="white" tappable (click)="forgotPass()">
+      <ion-label style="color: rgb(255, 255, 255, 0.6);">¿Olvidaste tu contraseña?</ion-label>
+    </p><br>
+    <div class="centrar-control"> 
+      <p text-center ion-text color="primary"><strong class="fuente-color">Ingresa con</strong> </p>
+            <button class="centrar-control" style="background-color: transparent" (click)="loginFacebook()">
+              <ion-icon name="" >
+                  <img src="../assets/imgs/facebook_blanco.png" height="18px" width="18px">
+              </ion-icon>
+            </button>     
+            <button class="centrar-control" style="background-color: transparent" (click)="loginGoogle()">
+              <ion-icon name="">
+                  <ion-icon name="" >
+                      <img src="../assets/imgs/google.png" 
+                        height="17px" width="22px">
+                  </ion-icon>
+              </ion-icon>
+            </button>
+    </div>
+    <!-- Other links -->
+    <div text-center margin-top>
+      <span ion-text class="fuente-colores" tappable (click)="register()">¿Usuario nuevo?
+        <strong class="fuente-colores">Regístrate aquí</strong></span>
+    </div>
+  </div>
+</ion-content>

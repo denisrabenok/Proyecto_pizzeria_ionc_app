@@ -1,0 +1,64 @@
+page-login {
+    ion-content {
+        background-image: url('../assets/imgs/fondo-login.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+    }
+
+    ion-input {
+        border-radius: 50px;
+        background: rgba(255, 255, 255,  0.1);
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    ion-img{
+    width: 140px;
+    height: 70px;
+    background-color: transparent;
+    }
+
+    ion-item {
+        border-radius: 5px;
+        height: 5px;
+        background: rgba(255, 255, 255,  0.1);
+        width: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    .padding-contenido{
+        padding-top: 190px;
+    }
+
+    .boton-session{
+        background-color: #00A95E;
+        border-radius: 5px;
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+    .centrar-control{
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+    }
+
+   .fuente-color {
+     color : #ffffff
+   }
+
+   .fuente-colores {
+       color : #00A95E
+  }
+
+  .icono-input{
+    color : rgba(192, 192, 192,  0.85);
+  }
+}

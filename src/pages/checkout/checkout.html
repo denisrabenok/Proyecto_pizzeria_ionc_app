@@ -1,0 +1,68 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Checkout
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12 no-padding>
+        <ion-item no-lines>
+            <ion-label no-margin><h1>Metodo de pago</h1></ion-label>
+        </ion-item>
+      </ion-col>
+      <ion-col col-12>
+        <ion-list>
+          <ion-item *ngFor="let card of cards ; index as i" no-lines padding-bottom>
+               <ion-label>
+                  <p><img width="40" [src]="card.icon">
+                {{card.number}}</p>
+                <p>{{card.holder_name}}</p>
+                <p>{{card.expiry_month}}/{{card.expiry_year}}</p>
+                <ion-item no-padding no-lines>
+                  <ion-label padding-right>Valor a pagar</ion-label>
+                  <ion-input elastic  padding-left float-right type="text" placeholder="$0.00" name="money" [brmasker]="{money: true, thousand: ' ', decimalCaracter: '.', decimal: '2'}" (ionBlur)="updateValues($event, i)"></ion-input>
+                </ion-item>
+
+                <a (tap)='presentActionSheet(i)' blue *ngIf="card.installments && card.installments != 0" ref="#"><p>Diferido a: {{card.installments}} Meses</p></a>
+                <a (tap)='presentActionSheet(i)' blue *ngIf="!card.installments" ref="#"><p>Diferido a: Al corriente</p></a>
+            </ion-label>
+            <ion-icon  ios="ios-close" md="md-close" item-end (tap)="removeCard($event, i)"></ion-icon>
+
+          </ion-item>
+
+
+          <label ion-item *ngIf="cards.length === 0" >
+              <ion-avatar item-start>
+                  <img src="assets/imgs/card.png">
+                </ion-avatar>
+                <h2></h2>
+                <p>No hay tarjetas seleccionadas</p>
+          </label>
+        </ion-list>
+      </ion-col>
+      <ion-col class="flexcontainer">
+        <button center ion-fab mini color="light" (tap)="aniadirTarjeta()"><ion-icon name="add"></ion-icon></button>
+      </ion-col>
+    </ion-row>
+    <ion-col col-12>
+      <h6 text-center>Valor Total</h6>
+      <h3 text-center>{{total_value| currency }}</h3>
+    </ion-col>
+    <ion-col col-12>
+        <h6 text-center>Valor Pendiente</h6>
+        <h3 text-center>{{pending_value | currency }} </h3>
+        <h4 text-center  *ngIf="enableWarning" ion-text color="danger">La suma de los valores a pagar no puede ser mayor al total a pagar </h4>
+      </ion-col>
+      <ion-col col-12 margin-top class="flexcontainer">
+        <button center ion-button round margin-top color="light"  *ngIf="enablePayment"  (tap)="resumenDePago()">Continuar</button>
+      </ion-col>
+  </ion-grid>
+</ion-content>

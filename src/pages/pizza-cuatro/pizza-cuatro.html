@@ -1,0 +1,109 @@
+
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            <ion-row align-items-center>
+                <button *ngIf="this.objetivo != null" ion-button color="green" (click)="editarPizzas()">Aceptar</button>
+            </ion-row>
+        </ion-title>
+    </ion-navbar>
+</ion-header>
+<ion-content padding class="cards-bg">
+    <ion-card no-padding class="formato-main-card">
+            <img *ngIf="this.diaPromo == this.combos[1].NOMBRE" class="imagen-tamanoDos" src="../assets/imgs/Miercoles-tripleta.png">
+            <img *ngIf="this.diaPromo == this.combos[2].NOMBRE" class="imagen-tamanoDos" src="../assets/imgs/Jueves-sorpresa.png">
+            <img *ngIf="this.diaPromo == this.combos[3].NOMBRE" class="imagen-tamanoDos" src="../assets/imgs/tetra-pack.png">
+            <img *ngIf="this.diaPromo == this.combos[4].NOMBRE"class="imagen-tamano" src="../assets/imgs/promon-domingo.png">
+        <div class="formato-span-secondary">
+            <span>PIZZA 4/4</span>
+        </div>
+        <button float-right no-padding style="color: #1ABC9C; height: 10%; margin-top:-13%; margin-right:2%;" ion-button
+            clear small icon-start (click)="siguiente()">
+            <img class="imagen-boton" src="../assets/imgs/siguiente.png" />
+        </button><br>
+        <div class="formato-span-terc">
+            <span>Selecciona el tamaño de la pizza</span><br>
+        </div>
+        <ion-row radio-group [(ngModel)]="tamanoElegido">
+            <ion-col *ngFor="let tamano of tamanos" col-4>
+                <div float-left no-padding style="width: 100%;" color="secondary_white" disabled=true>
+                    <ion-radio disabled=true style="padding-top:0%; padding-bottom: 0%; margin-left:8%;" [value]="tamano" #tamanoSelect
+                        (ionSelect)="cambioTamano(tamano.checked)" checked="tamanoElegido">
+                        {{tamano.nombre}}
+                    </ion-radio>
+                    <ion-label style="margin-top: -17%; margin-bottom: 0;" class="formato-span-terc">{{tamano.nombre}}
+                    </ion-label>
+                </div>
+            </ion-col>
+        </ion-row>
+        <ion-row no-padding>
+            <ion-col no-padding>
+                <img class="imagen-pizza-tamano" src="../../assets/imgs/pizzabase.jpg">
+            </ion-col>
+        </ion-row>
+
+        <div no-padding class="formato-span-terc">
+            <span>Selecciona dos (02) Ingredientes y agrégalos a la pizza</span><br>
+        </div>
+        <ion-grid>
+            <ion-row>
+                <ion-col *ngFor="let ingrediente of ingredientes" col-4>
+                    <div [ngClass]="{'div-disabled': ingrediente.seleccion==true}">
+                        <ion-card class="formato-card-terceary">
+                            <ion-checkbox float-right
+                                style="zoom: 1.2; padding-top: 5%; padding-right: 4%; padding-bottom: 3%; " item-right
+                                [(ngModel)]="ingrediente.checked" (ionChange)="handlerCheckbox(ingrediente)">
+                            </ion-checkbox>
+                            <img class="imagen-pizza-tamano" src="{{ingrediente.imagenUrl}}" />
+                            <ion-card-content>
+                                <ion-card-title class="formato-fuente">
+                                    {{ingrediente.nombre}}
+                                </ion-card-title>
+                            </ion-card-content>
+                        </ion-card>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-card>
+</ion-content>
+<!--
+<ion-header>
+  <ion-navbar color="primary">
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>
+          <ion-row align-items-center>
+              <ion-col width-50>
+                  <span float-left ion-text>Pizza Cuatro</span>
+              </ion-col>
+              <button *ngIf="this.objetivo == null" ion-button color="green" (click)="siguiente()">Siguiente</button>
+              <button *ngIf="this.objetivo != null" ion-button color="green" (click)="editarPizzas()">Aceptar</button>
+          </ion-row>
+      </ion-title>
+  </ion-navbar>
+  <ion-toolbar color="secondary_white">
+      <ion-item>
+          <ion-label>Tamaño</ion-label>
+          <ion-select [(ngModel)]="tamanoElegido" #tamanoSelect (ionChange)="cambioTamano(tamanoSelect.value)" disabled=true>
+              <ion-option *ngFor="let tamano of tamanos" [value]="tamano">{{tamano.nombre}}</ion-option>
+          </ion-select>
+      </ion-item>
+  </ion-toolbar>
+  <ion-item>
+      <img src="../../assets/imgs/pizza-una.png">
+  </ion-item>
+</ion-header>
+<ion-content>
+  <ion-tabs #tabs tabsPlacement='top' selectedIndex="1">
+      <ion-slides class="swiper-no-swiping">
+          <ion-slide>
+              <ion-tab [root]="ingredientesTab" tabTitle="Elegir dos ingredientes" [enabled]="this.ingredientesEnabled" [rootParams]="ingredientesParams"></ion-tab>
+          </ion-slide>
+      </ion-slides>
+  </ion-tabs>
+</ion-content>-->

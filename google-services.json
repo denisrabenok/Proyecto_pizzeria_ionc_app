@@ -1,0 +1,121 @@
+{
+  "project_info": {
+    "project_number": "320424180530",
+    "firebase_url": "https://pizzeriaapp-f505e.firebaseio.com",
+    "project_id": "pizzeriaapp-f505e",
+    "storage_bucket": "pizzeriaapp-f505e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320424180530:android:aea986b46915e81a",
+        "android_client_info": {
+          "package_name": "com.innovasystem.pizzeria"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "320424180530-rfb113cms2vliql028a7b6evo1eejmji.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.innovasystem.pizzeria",
+            "certificate_hash": "f253a04cd6870d8621ea5a3305d457e80e870476"
+          }
+        },
+        {
+          "client_id": "320424180530-7qi6fqmonjegn5q728vkjaqtra3mbr60.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.innovasystem.pizzeria",
+            "certificate_hash": "926d39b2824f394ecf87b7f774eed21a32aa6dd4"
+          }
+        },
+        {
+          "client_id": "320424180530-q7cirh7otkfal6v6c5ci2vlr83d71goo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7Y8UBMJOF7lxVe1LwnzijKxh7mer8zic"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "320424180530-q7cirh7otkfal6v6c5ci2vlr83d71goo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "320424180530-hh3pgfnmahmcjmdpo4qjncouth5amgbq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.innovasystem.pizzeria"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:320424180530:android:764d2cb7da3280eb",
+        "android_client_info": {
+          "package_name": "io.ionic.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "320424180530-d2epnt1bkc90hhk0k0icrcjukgu4uh3j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.ionic.starter",
+            "certificate_hash": "926d39b2824f394ecf87b7f774eed21a32aa6dd4"
+          }
+        },
+        {
+          "client_id": "320424180530-q7cirh7otkfal6v6c5ci2vlr83d71goo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7Y8UBMJOF7lxVe1LwnzijKxh7mer8zic"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "320424180530-q7cirh7otkfal6v6c5ci2vlr83d71goo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "320424180530-hh3pgfnmahmcjmdpo4qjncouth5amgbq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.innovasystem.pizzeria"
+              }
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

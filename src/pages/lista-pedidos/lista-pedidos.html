@@ -1,0 +1,38 @@
+<!--
+  Generated template for the ListaPedidosPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar color="primary">
+          <button ion-button menuToggle>
+              <ion-icon name="menu"></ion-icon>
+            </button>
+        <ion-title>
+            Mis Pedidos
+        </ion-title>
+      </ion-navbar>
+  
+  </ion-header>
+
+
+<ion-content >
+    <ion-list >
+
+        <ion-item *ngFor="let pedido of pedidos"  >
+    
+            <ion-thumbnail item-start (click)="verPedido(pedido)">
+                <img src="assets/imgs/pizza_thumbnail.png">
+              </ion-thumbnail>
+              <h2 (click)="verPedido(pedido)">{{pedido.fecha}}</h2>
+              <p (click)="verPedido(pedido)">{{pedido.estado}}</p>
+              <button  *ngIf="pedido.recibido != '1' " ion-button clear item-end  (click)="salaChat(pedido)">CHAT </button>
+              
+        </ion-item>
+      
+      </ion-list>
+
+    
+</ion-content>

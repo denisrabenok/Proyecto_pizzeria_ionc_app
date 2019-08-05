@@ -1,0 +1,51 @@
+
+  <ion-content padding>
+     <!--    <ion-card padding>
+    <ion-grid>
+      <ion-row>
+        <ion-col *ngFor="let ingrediente of ingredientes">
+          <ion-card color="innercard" class="cardStyle">
+            <img src="{{ingrediente.imagenUrl}}" />
+            <ion-card-content>
+              <ion-card-title style="font-size: 13px">
+                        {{ingrediente.nombre}}
+              </ion-card-title>
+              <ion-checkbox [(ngModel)]="ingrediente.checked" (ionChange)="handlerCheckbox(ingrediente)" ></ion-checkbox>
+        </ion-card-content>
+        </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-card>
+
+    <ion-list  >
+        <ion-item *ngFor="let ingrediente of ingredientes" style="background-color:transparent">
+                <ion-checkbox [(ngModel)]="ingrediente.checked" (click)="handlerCheckbox(ingrediente)" ></ion-checkbox>
+                <ion-label >
+                        <h2 class="nombre" >{{ingrediente.nombre}}</h2>
+                </ion-label>
+                <ion-label item-end>
+                      <ion-avatar  item-end>
+                          <img  width="50" height="50"  float-right src="{{ingrediente.imagenUrl}}"/>
+                      </ion-avatar>                     
+              </ion-label>
+        </ion-item>
+   </ion-list>-->
+
+
+   <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let ingrediente of ingredientes" col-4>
+        <ion-card class="formato-card-terceary">
+        <ion-checkbox float-right style="zoom: 1.2; padding-top: 5%; padding-right: 4%; padding-bottom: 3%; " item-right [(ngModel)]="ingrediente.checked" (click)="handlerCheckbox(ingrediente)" ></ion-checkbox>
+          <img class="imagen-pizza-tamano" src="{{ingrediente.imagenUrl}}" />
+          <ion-card-content>
+            <ion-card-title class="formato-fuente">
+              {{ingrediente.nombre}}
+            </ion-card-title>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

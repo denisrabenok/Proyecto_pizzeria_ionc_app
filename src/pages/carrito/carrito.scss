@@ -1,0 +1,284 @@
+page-carrito {
+
+    
+
+    .fab {
+        contain: initial;
+        box-shadow: 0px  white;
+      }
+   
+    ion-fab {
+        ion-fab-list button[ion-fab] {
+            overflow: visible;
+
+            div.label {
+            position: absolute;
+            right: 48px;
+            height: 24px;
+            line-height: 16px;
+            padding-left: 8px;
+            padding-right: 8px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            border-radius: 3px;
+            color: #ffff;
+            }
+        }
+    }
+
+    .checkout-trip {
+
+        .trip-info {
+          .trip-image {
+            width: 100%;
+            height: 120px;
+            background-size: 100% auto;
+            background-position: center;
+            border-radius: 1rem 1rem 0 0;
+          }
+      
+          .trip-features {
+            ion-icon {
+              min-width: 1.5rem;
+              text-align: center;
+            }
+          }
+        }
+      
+        .item.no-border .item-inner {
+          padding-right: 0;
+          [item-end] {
+            margin: 0;
+          }
+        }
+      
+      }
+
+
+      .formato-logo{
+        width: 30%;
+        height: 25%;
+        display:block;
+        margin:auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .imagen-boton{
+      width: 85%;
+       height: 80%;
+    }
+    
+      .formato-main-card{
+        background-color: white;
+        border: 1px solid grey;
+        width: 100%;
+        height: auto;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+        border-radius: 0px! important; 
+      }
+    
+      .formato-card-secondary{
+        background-color: white;
+        border: 0.5px solid grey;
+        width: 95%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        float: none;
+        padding-top: 3%;
+    }
+    
+    .formato-card-terceary{
+      background-color: white;
+      border: 1px solid grey;
+      width: 100%;
+      height: 300%;
+      margin-left: auto;
+      margin-right: auto;
+      float: none;
+    }
+  
+    .formato-card-quarte{
+      background-color: white;
+      border: 1px solid grey;
+      width: 100%;
+      height: 190%;
+      margin-left: auto;
+      margin-right: auto;
+      float: none;
+      padding-bottom:3%;
+      margin-bottom: 5%,
+    }
+    
+    .imagen-tamano{
+      padding-top: 0;
+      margin-top: -3%;
+      width: 20%;
+      height: 20%;
+    }
+    
+    .formato-span-secondary{
+      width: 100%;
+      font-size: 1.2em;
+      text-align: center;
+      color:rgba(0, 169, 93, 0.925) ;
+      margin-top: 2%;
+      margin-bottom: 15%;
+      margin-left: auto;
+      margin-right: auto;
+      float: none;
+    }
+  
+    .formato-span-secondary-ter{
+      width: 100%;
+      font-size: 1.2em;
+      color:rgba(0, 169, 93, 0.925) ;
+      margin-top: -10%;
+      margin-bottom: 15%;
+      margin-right: 8%;
+      margin-left: -5%;
+      text-align: right;
+      float: none;
+      font-weight: 600;
+    }
+    
+    .imagen-pizza-tamano{
+      padding-top: 0;
+      margin-top: -2%;
+      margin-left: auto;
+      margin-right: auto;
+      width: 85%;
+      height: 80%;
+    }
+    
+    .imagen-pizza-card{
+      padding-top: 0;
+      margin-top: 4%;
+      margin-bottom: auto;
+      margin-left: 2%;
+      width: 35%;
+      height: 60%;
+    }
+  
+    .imagen-promo-tamano{
+      padding-top: 0%;
+      margin-top: 0%;
+      margin-bottom: -1%;
+      margin-left: 2%;
+      width: 30%;
+      height: 30%;
+    }
+  
+    .imagen-promo-tamano-card{
+      padding-top: 0%;
+      margin-top: 0%;
+      margin-bottom: -1%;
+      margin-left: 2%;
+      width: 17%;
+      height: 17%;
+    }
+    
+    .checkbox-formato{
+      margin-top: 5%;
+      margin-bottom: 3%;
+      margin-left: 4%;
+      font-size: 20%;
+      zoom:1.1;
+    }
+    .campo-formato{
+      border: 1px solid grey;
+    }
+    
+     .formato-fuente{
+       margin-top: -5%;
+       font-size: 100%;
+       font-family: 'Roboto', sans-serif;
+       text-align: center;
+       text-transform: uppercase;
+       margin-bottom: 0;
+       font-weight: 600;
+       margin-left: 0%;
+       margin-right: 0%;
+       padding-left: 0%;
+       padding-right: 0%;
+       padding-bottom: 0px;
+     }
+    
+     .formato-fuente-second{
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 0%;
+        margin-left: -3%;
+        margin-right: -3%;
+        color: black;
+        font-size: 0.65em;
+        font-family: 'Roboto', sans-serif;
+        text-align: center;
+    }  
+  
+    .formato-titulo{
+      width: 100%; 
+      margin-top: -25%; 
+      margin-left: 13%; 
+      font-size: 100%; 
+      font-weight: 600; 
+      text-transform: uppercase;
+      font-family: 'Roboto', sans-serif;
+    }
+    .formato-titulo-main{
+      width: 100%; 
+      margin-top: 2%; 
+      margin-left: auto; 
+      margin-right: auto;
+      font-size: 110%; 
+      font-weight: 600; 
+      text-transform: uppercase;
+      font-family: 'Roboto', sans-serif;
+    }
+  
+    .formato-titulo-second{
+      width: 100%; 
+      margin-top: -20%; 
+      margin-left: 15%; 
+      font-size: 90%; 
+      font-weight: 600; 
+      text-transform: uppercase;
+      font-family: 'Roboto', sans-serif;
+    }
+  
+    .formato-detalle{
+      width: 100%; 
+      margin-top: 1%; 
+      margin-left: 10%; 
+      font-size: 100%;
+      font-family: 'Roboto', sans-serif;                                
+    }
+  
+    .formato-detalle-un{
+      width: 100%; 
+      margin-top: 0%; 
+      margin-left: 10%; 
+      margin-bottom: 3%;
+      font-size: 100%;
+      font-family: 'Roboto', sans-serif;    
+      padding-bottom: 0%;                            
+    }
+  
+    .formato-detalle-second{
+      width: 100%; 
+      margin-top: 1%; 
+      margin-left: 10%; 
+      font-size: 70%;
+      font-family: 'Roboto', sans-serif;                                
+    }
+  
+    .imagen-tamano{
+      width: 90%;
+      height: 100%;
+    }
+}

@@ -1,0 +1,45 @@
+
+<!--<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>
+            <ion-row align-items-center>
+                <ion-col width-50>
+                    <span float-left ion-text>Promoción del día</span>
+                </ion-col>
+            </ion-row>
+        </ion-title>
+    </ion-navbar>
+</ion-header> -->
+<ion-content style="background: rgba(0, 0, 0, 0.5)">
+    <ion-list  *ngIf="combos.length > 0">
+        <ion-item *ngFor="let combo of combos" class="sample-modal-page" >
+          <ion-card style="margin-top: 0%" class="tarjeta-col">
+              <button class="boton-cerrar" style="margin-bottom: 0%" (click)="cerrarModal();">
+                  <img src="../assets/imgs/exit.png"/>
+              </button>
+            <img class="formato-imagen" src="{{combo.IMAGEN_URL}}" />
+            <ion-card-content class="espacio-contenido">
+              <ion-card-title style="color:  rgb(190,29,62);font-size: 100%; margin:0%">
+                {{combo.NOMBRE}}
+              </ion-card-title>
+              <ion-item style="background: transparent" class="propiedades" >
+              <ion-textarea class="textare-style" rows="4" cols="1"  readonly value="{{combo.DESCRIPCION}}">
+              </ion-textarea>
+            </ion-item>
+            </ion-card-content>
+            <ion-row no-padding style="margin-top: 0%">
+              <ion-col >
+                <span style="margin-left: 4%" text-left>Desde</span>
+                  <span style="color: #1ABC9C; font-size: 170%">${{ combo.COSTO }}</span>
+                <button style="color: #1ABC9C; height: 70%; margin-left: 45%" id="{{combo.id}} " ion-button clear small icon-start (click)="ordenar()">
+                  <img class="imagen-boton" src="../assets/imgs/carrito.png"/>
+                </button>
+              </ion-col>
+            </ion-row>
+          </ion-card>
+        </ion-item>
+      </ion-list>
+</ion-content>

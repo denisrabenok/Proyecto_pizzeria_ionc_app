@@ -1,0 +1,46 @@
+<!--
+  Generated template for the ListUbicationPage page.
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title> Mis Direcciones Favoritas </ion-title>
+    <!-- <ion-buttons right>
+      <button ion-button outline (click)="goToCobertura()">Cobertura</button>
+    </ion-buttons> -->
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header color="white_text">
+      Ubicaciones
+    </ion-card-header>
+
+    <ion-card *ngIf="ubications.length == 0">
+      <ion-card-header>
+        No ha escogido sus direcciones favoritas :\
+      </ion-card-header>
+
+      <ion-card-content>
+        Agrege direcciones favoritas y encuentrelas rapidamente
+      </ion-card-content>
+    </ion-card>
+
+    <ion-list *ngIf="ubications.length > 0">
+      <button ion-item *ngFor="let ubication of ubications" (click)="goToViewMap(ubication)">
+        {{ ubication.NOMBRE }}
+      </button>
+    </ion-list>
+  </ion-card>
+
+  <button ion-button full (click)="goToAddUbication()" color="green">Agregar Dirección</button>
+
+</ion-content>

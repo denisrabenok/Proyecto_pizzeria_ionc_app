@@ -1,0 +1,34 @@
+<!--
+  Generated template for the FormaEntregaPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>
+      Forma de Entrega
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content center padding>
+
+  <ion-list>
+
+    <ion-item margin-top margin-bottom center (click)="local()">
+      <img  class="formaEntrega"  center src="assets/imgs/local-ico.png">
+      <h1 text-center >Recoger en Local</h1>
+    </ion-item>
+
+    <ion-item margin-top margin-bottom center (click)="domicilio()">
+      <img class="formaEntrega"  center src="assets/imgs/delivery-ico.png">
+      <h1 text-center>A Domicilio</h1>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>

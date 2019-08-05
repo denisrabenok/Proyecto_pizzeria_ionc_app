@@ -1,0 +1,61 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Detalle | {{ combo.NOMBRE }}</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      Descripcion
+    </ion-card-header>
+    <ion-card-content>
+      {{ combo.DESCRIPCION }}
+    </ion-card-content>
+  </ion-card>
+  <ion-list  *ngIf="t.length > 0">
+    <ion-item *ngFor="let pizza of t">
+      <ion-card>
+        <img src="{{pizza.IMAGEN_URL}}" />
+        <ion-card-content>
+          <ion-card-title>
+            {{pizza.NOMBRE}}
+            <br>
+          </ion-card-title>
+          <p>
+            {{pizza.DESCRIPCION}}
+          </p>
+        </ion-card-content>
+        <ion-row no-padding>
+          <ion-col text-center>
+            Cantidad: {{pizza.CANTIDAD}}
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+  <ion-list  *ngIf="add.length > 0">
+    <ion-item *ngFor="let pizza of add">
+      <ion-card>
+        <img src="{{pizza.IMAGEN_URL}}" />
+        <ion-card-content>
+          <ion-card-title>
+            {{pizza.NOMBRE}}
+            <br>
+          </ion-card-title>
+          <p>
+            {{pizza.DESCRIPCION}}
+          </p>
+        </ion-card-content>
+        <ion-row no-padding>
+          <ion-col text-center>
+            Cantidad: {{pizza.CANTIDAD}}
+          </ion-col>
+        </ion-row>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+</ion-content>

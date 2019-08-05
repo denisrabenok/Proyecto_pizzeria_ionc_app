@@ -1,0 +1,20 @@
+
+<ion-header>
+
+    <ion-navbar color="primary">
+      <ion-title>
+          {{pedido_fecha}}
+      </ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content>
+
+    <ion-tabs #tabs >
+        <ion-tab [root]="estadoTab" tabTitle="Estado"     [rootParams]="estadoParams" ></ion-tab>
+        <!--<ion-tab [root]="detallesTab" tabTitle="Detalles"  [rootParams]="detallesParams" ></ion-tab>-->
+      </ion-tabs>
+
+</ion-content>

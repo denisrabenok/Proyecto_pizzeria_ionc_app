@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Carrito
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+
+<ion-item *ngFor="let c of productos" >
+
+  <ion-grid item-content>
+      <ion-checkbox [(ngModel)]="c.select" color="secondary_red" ></ion-checkbox>
+  <ion-row>
+    <ion-col col-10>
+    <ion-row>
+      <ion-col>
+        Producto
+      </ion-col>
+      <ion-col>
+        {{ c.nombre }}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        Descripción
+      </ion-col>
+      <ion-col>
+        {{ c.descripcion }}
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        Cantidad
+      </ion-col>
+      <ion-col>
+        {{ c.cantidad }}
+      <br>
+          <ion-icon item-end (click)="removeCantidad($event, c);" [attr.data-target]="c" name="remove"></ion-icon>
+
+          <ion-icon item-end (click)="addCantidad($event, c);" [attr.data-target]="c" name="add"></ion-icon>
+
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        Precio
+      </ion-col>
+      <ion-col>
+        {{ c.precio | currency }}
+
+      </ion-col>
+    </ion-row>
+    </ion-col>
+
+    <ion-col col-2>
+
+          <ion-icon item-end (tap)="eliminarProducto($event, c.idP);" [attr.data-target]="c.idP" name="trash"></ion-icon>
+
+
+
+    </ion-col>
+    </ion-row>
+
+
+  </ion-grid>
+
+
+  </ion-item>
+
+  <ion-card id="carritoP-card22">
+    <ion-list>
+      <h1 id="carritoP-heading2" style="color:#000000;">
+        Total: {{ totalCarrito | currency  }}
+      </h1>
+      <button id="carritoP-button6" (click)="goPage();" ion-button color="positive" block>
+        Continuar
+      </button>
+    </ion-list>
+  </ion-card>
+
+
+</ion-content>

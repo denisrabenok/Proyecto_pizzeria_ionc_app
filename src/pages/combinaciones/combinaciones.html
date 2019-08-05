@@ -1,0 +1,621 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <button ion-button menuToggle>
+            <ion-icon name="menu"></ion-icon>
+        </button>
+        <img class="formato-logo" src="../assets/imgs/logotipon.png">
+        <button float-right style="color: #1ABC9C; width: 22%; height: 13%; margin-top:-12%; padding-top:0%," ion-button clear small icon-start (click)="aCarrito2()">
+                <img class="imagen-boton" src="../assets/imgs/carritoc.png" />
+        </button>
+       <!-- <ion-title>
+            <ion-row align-items-center>
+                <ion-col width-50>
+
+                    <button
+                        *ngIf="combinacion.pizzas.length > 0 ||  combinacion.adicionales.length >0  ||  promocionales.length >0  || tradicionales.length >0  ||  combos.length >0 || tradicionalesPromo.length >0"
+                        float-right color="green" ion-button (click)="aCarrito()" [disabled]="bloquearBoton"
+                        color="green">A Carrito</button>
+                </ion-col>
+            </ion-row>
+        </ion-title>-->
+    </ion-navbar>
+   <!-- <ion-toolbar padding color="secondary_red">
+        <h2 ion-text no-margin class="text-white" text-right>Total $ {{costoTotal| number : '1.2-2' }}</h2>
+    </ion-toolbar> -->
+</ion-header>
+<ion-content padding class="cards-bg">
+    <ion-card no-padding class="formato-main-card">
+        <div class="formato-span-secondary">
+            <span>RESUMEN</span><br>
+        </div>
+        <div class="formato-span-secondary-ter">
+                <span>Total: $  {{costoTotal| number : '1.2-2'}}</span><br>
+            </div>
+
+        <!-- LISTA DE PIZZAS  CREDAS-->
+
+        <ion-card *ngIf="combinacion.pizzas.length != 0 " class="formato-card-secondary" >
+                <div no-padding name class="formato-titulo-main">
+                        <span style=" display: flex; justify-content:center; width: 100%;">
+                            PIZZAS FAVORITAS O CREADAS
+                        </span>
+                    </div>
+            <ion-grid>
+                <ion-row justify-content-center align-items-center>
+                    <ion-col *ngFor="let pizza of combinacion.pizzas" col-12>
+                        <ion-card class="formato-card-terceary">
+                            <button float-right no-padding
+                                style="width: 10%; height: 10%; color: #1ABC9C; height: 15%; margin-top:1%; margin-right:0%;"
+                                ion-button clear small icon-start (click)="eliminarElemento(pizza, 'PIZZA')">
+                                <img class="imagen-boton" src="../assets/imgs/eliminado.png" />
+                            </button>
+                            <ion-card-content>
+                                <img *ngIf="combinacion.pizzas.imgUrl != null" class="imagen-promo-tamano" src="{{combinacion.pizzas.imgUrl}}" />
+                                <img *ngIf="combinacion.pizzas.imgUrl == null" class="imagen-promo-tamano" src="../assets/imgs/pizza-uno.png">
+                                <div *ngIf="pizza.nombre != null" no-padding name class="formato-titulo">
+                                    <span style=" display: flex; justify-content:center; width: 100%;">
+                                            {{pizza.nombre}}
+                                    </span>
+                                </div><br>
+                                <div *ngIf="pizza.nombre == null" no-padding name class="formato-titulo">
+                                        <span style=" display: flex; justify-content:center; width: 100%;">
+                                                Pizza
+                                        </span>
+                                    </div>
+                                    <div no-padding name class="formato-detalle-un">
+                                            <span style=" display: flex; justify-content:center; width: 100%;">
+                                                Tamaño: {{pizza.tamano}}
+                                            </span>
+                                        </div>
+                                <div no-padding name class="formato-detalle-un">
+                                    <span style=" display: flex; justify-content:center; width: 100%;">
+                                        Masa: {{pizza.masa.nombre}}
+                                    </span>
+                                </div>
+                                <div no-padding name class="formato-detalle-un">
+                                        <span style=" display: flex; justify-content:center; width: 100%;">
+                                            Borde: {{pizza.borde.nombre}}
+                                        </span>
+                                    </div>
+                                    <div no-padding name class="formato-detalle-un">
+                                            <span style=" display: flex; justify-content:center; width: 100%; font-weight: 600;">
+                                                Ingredientes
+                                            </span>
+                                        </div>
+                                    <div *ngFor="let ingrediente of pizza.ingredientes" no-padding name class="formato-detalle-un">
+                                            <span style=" display: flex; justify-content:center; width: 100%;">
+                                                    {{ingrediente.nombre}}
+                                            </span>
+                                        </div><br>
+                                <ion-row center>
+                                        <p item-start ion-text color="secondary_red">
+                                            <strong>Cantidad: </strong>
+                                        </p>
+                                        <ion-col width-30 text-center>
+                                            <ion-icon name="remove-circle" class="text-2x" tappable
+                                                (click)="disminuirCantidad(pizza)" [hidden]="pizza.cantidad < 2 "
+                                                color="secondary_red"></ion-icon>
+                                        </ion-col>
+                                        <ion-col width-20 text-center>{{pizza.cantidad}}</ion-col>
+                                        <ion-col width-30 text-center>
+                                            <ion-icon name="add-circle" class="text-2x" tappable (click)="aumentarCantidad(pizza)"
+                                                color="secondary_red"></ion-icon>
+                                        </ion-col>
+                                        <ion-col width-20 text-center>
+                                            <h2 item-start ion-text color="secondary_red">
+                                                <strong>${{pizza.costo * pizza.cantidad | number : '1.2-2'}}</strong>
+                                            </h2>
+                                        </ion-col>
+                                    </ion-row>
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card>
+ <!--
+        <ion-list>
+            <ion-item *ngFor="let pizza of combinacion.pizzas">
+                <div class="card round">
+                    <ion-list no-margin>
+                        <ion-item class="primary-bg">
+                            <ion-avatar item-start>
+                                <img src="assets/imgs/pizza.png">
+                            </ion-avatar>
+                            <ion-icon *ngIf="pizza.nombre == null " padding-right="16px" color="white" item-end
+                                name="create" (click)="editarPizza(this.pizza)"></ion-icon>
+                            <ion-icon color="white" item-end name="trash" (click)="eliminarElemento(pizza, 'PIZZA')">
+                            </ion-icon>
+                            <h2 *ngIf="pizza.nombre == null " ion-text class="text-white bold">Pizza</h2>
+                            <h2 *ngIf="pizza.nombre != null " ion-text class="text-white bold">{{pizza.nombre}}</h2>
+                            <p ion-text color="white">
+                                <strong>Tamaño: </strong> {{pizza.tamano.nombre}}</p>
+                        </ion-item>
+                    </ion-list>
+                    <ion-row>
+                        <ion-col width-60>
+                            <div padding>
+                                <h5 ion-text color="secondary_red">
+                                    <strong>Masa: </strong> {{pizza.masa.nombre}}</h5>
+                                <h5 ion-text color="secondary_red">
+                                    <strong>Borde: </strong> {{pizza.borde.nombre}}</h5>
+                            </div>
+                        </ion-col>
+                        <ion-col width-60>
+                            <div padding>
+                                <h5 ion-text color="secondary_red">
+                                    <strong>Ingredientes: </strong>
+                                </h5>
+                                <h5 *ngFor="let ingrediente of pizza.ingredientes" ion-text color="secondary_red">
+                                    {{ingrediente.nombre}}
+                                    <span [hidden]="ingrediente.porcion.valor <2">
+                                        {{ingrediente.porcion.valor}}</span>
+                                </h5>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                    <ion-item>
+                        <ion-row center>
+                            <p item-start ion-text color="secondary_red">
+                                <strong>Cantidad: </strong>
+                            </p>
+                            <ion-col width-30 text-center>
+                                <ion-icon name="remove-circle" class="text-2x" tappable
+                                    (click)="disminuirCantidad(pizza)" [hidden]="pizza.cantidad < 2 "
+                                    color="secondary_red"></ion-icon>
+                            </ion-col>
+                            <ion-col width-20 text-center>{{pizza.cantidad}}</ion-col>
+                            <ion-col width-30 text-center>
+                                <ion-icon name="add-circle" class="text-2x" tappable (click)="aumentarCantidad(pizza)"
+                                    color="secondary_red"></ion-icon>
+                            </ion-col>
+                            <ion-col width-20 text-center>
+                                <h2 item-start ion-text color="secondary_red">
+                                    <strong>${{pizza.costo * pizza.cantidad | number : '1.2-2'}}</strong>
+                                </h2>
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                </div>
+            </ion-item>
+        </ion-list> -->
+
+        <!-- LISTA DE PIZZAS  PROMOCIONALES -->
+     <!--   <ion-list>
+            <ion-item *ngFor="let pizza of promocionales">
+                <div class="card round">
+                    <ion-list no-margin>
+                        <ion-item class="primary-bg">
+                            <ion-avatar item-start>
+                                <img src="assets/imgs/pizza.png">
+                            </ion-avatar>
+                            <ion-icon padding-right="16px" color="white" item-end name="create"
+                                (click)="this.editarPizzaPromocional(pizza, this.pizza.nombre)"></ion-icon>
+                            <h2 *ngIf="pizza.nombre == null " ion-text class="text-white bold">Pizza</h2>
+                            <h2 *ngIf="pizza.nombre != null " ion-text class="text-white bold">{{pizza.nombre}}</h2>
+                            <p ion-text color="white">
+                                <strong>Tamaño: </strong> {{pizza.tamano.nombre}}</p>
+                        </ion-item>
+                    </ion-list>
+                    <ion-row>
+                        <ion-col width-60>
+                            <div padding>
+                                <h5 ion-text color="secondary_red">
+                                    <strong>Ingredientes: </strong>
+                                </h5>
+                                <h5 *ngFor="let ingrediente of pizza.ingredientes" ion-text color="secondary_red">
+                                    {{ingrediente.nombre}}
+                                </h5>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                    <ion-item>
+                        <ion-row center>
+                            <p item-start ion-text color="secondary_red">
+                                <strong>Cantidad: </strong>
+                            </p>
+                            <ion-col width-20 text-center>{{pizza.cantidad}}</ion-col>
+                            <!-- <ion-col width-20 text-center>
+                              <h2 item-start ion-text color="secondary_red">
+                                  <strong>${{pizza.costo * pizza.cantidad | number : '1.2-2'}}</strong>
+                              </h2>
+                          </ion-col>
+                        </ion-row>
+                    </ion-item>
+                </div>
+            </ion-item>
+        </ion-list>  -->
+
+        <!-- LISTA DE PIZZAS TRADICIONALES (NO SE PUEDEN EDITAR)-->
+
+        <ion-card *ngIf="tradicionales.length !=0" class="formato-card-secondary">
+                <div no-padding name class="formato-titulo-main">
+                        <span style=" display: flex; justify-content:center; width: 100%;">
+                            PIZZAS GOURMET
+                        </span>
+                    </div>
+            <ion-grid>
+                <ion-row justify-content-center align-items-center>
+                    <ion-col *ngFor="let pizza of tradicionales" col-12>
+                        <ion-card class="formato-card-terceary">
+                            <button float-right no-padding
+                                style="width: 10%; height: 10%; color: #1ABC9C; height: 15%; margin-top:1%; margin-right:0%;"
+                                ion-button clear small icon-start (click)="eliminarElemento(pizza , 'TRADICIONAL')">
+                                <img class="imagen-boton" src="../assets/imgs/eliminado.png" />
+                            </button>
+                            <ion-card-content>
+                                <img class="imagen-promo-tamano" src="{{pizza.imgUrl}}" />
+                                <div no-padding name class="formato-titulo">
+                                    <span style=" display: flex; justify-content:center; width: 100%;">
+                                        {{pizza.nombre}}
+                                    </span>
+                                </div>
+                                <!--<ion-card-title class="formato-fuente">
+                                    {{combo.NOMBRE}}
+                                </ion-card-title>-->
+                                <div no-padding name class="formato-detalle">
+                                    <span style=" display: flex; justify-content:center; width: 100%;">
+                                        Tamaño: {{pizza.tamano}}
+                                    </span>
+                                </div><br>
+                                <ion-row center>
+                                    <p item-start ion-text color="secondary_red">
+                                        <strong>Cantidad: </strong>
+                                    </p>
+                                    <ion-col width-30 text-center>
+                                        <ion-icon name="remove-circle" class="text-2x" tappable
+                                            (click)="disminuirCantidad(pizza)" [hidden]="pizza.cantidad < 2 "
+                                            color="secondary_red"></ion-icon>
+                                    </ion-col>
+                                    <ion-col width-20 text-center>{{pizza.cantidad}}</ion-col>
+                                    <ion-col width-30 text-center>
+                                        <ion-icon name="add-circle" class="text-2x" tappable
+                                            (click)="aumentarCantidad(pizza)" color="secondary_red"></ion-icon>
+                                    </ion-col>
+                                    <ion-col width-20 text-center>
+                                        <h2 item-start ion-text color="secondary_red">
+                                            <strong>${{pizza.costo * pizza.cantidad | number : '1.2-2'}}</strong>
+                                        </h2>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card>
+        <!--
+        <ion-list>
+            <ion-item *ngFor="let pizza of tradicionales">
+                <div class="card round">
+                    <ion-list no-margin>
+                        <ion-item class="primary-bg">
+                            <ion-avatar item-start>
+                                <img src="{{pizza.imgUrl}}">
+                            </ion-avatar>
+                            <ion-icon color="white" item-end name="trash"
+                                (click)="eliminarElemento(pizza , 'TRADICIONAL')">
+                            </ion-icon>
+                            <h2 ion-text class="text-white bold ">{{pizza.nombre}}</h2>
+                            <p ion-text color="white">
+                                <strong>Tamaño: </strong> {{pizza.tamano}}</p>
+                        </ion-item>
+                    </ion-list>
+                    <ion-item>
+                        <ion-row center>
+                            <p item-start ion-text color="secondary_red">
+                                <strong>Cantidad: </strong>
+                            </p>
+                            <ion-col width-30 text-center>
+                                <ion-icon name="remove-circle" class="text-2x" tappable
+                                    (click)="disminuirCantidad(pizza)" [hidden]="pizza.cantidad < 2 "
+                                    color="secondary_red"></ion-icon>
+                            </ion-col>
+                            <ion-col width-20 text-center>{{pizza.cantidad}}</ion-col>
+                            <ion-col width-30 text-center>
+                                <ion-icon name="add-circle" class="text-2x" tappable (click)="aumentarCantidad(pizza)"
+                                    color="secondary_red"></ion-icon>
+                            </ion-col>
+                            <ion-col width-20 text-center>
+                                <h2 item-start ion-text color="secondary_red">
+                                    <strong>${{pizza.costo * pizza.cantidad | number : '1.2-2'}}</strong>
+                                </h2>
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                </div>
+            </ion-item>
+        </ion-list> -->
+
+        <!-- LISTA DE PIZZAS TRADICIONALES POMOCIONALES (NO SE PUEDEN EDITAR)
+      <!--  <ion-list>
+            <ion-item *ngFor="let pizza of tradicionalesPromo">
+                <div class="card round">
+                    <ion-list no-margin>
+                        <ion-item class="primary-bg">
+                            <ion-avatar item-start>
+                                <img src="{{pizza.imgUrl}}">
+                            </ion-avatar>
+                            <ion-icon color="white" item-end name="trash"
+                                (click)="eliminarElemento(pizza , 'TRADICIONAL')">
+                            </ion-icon>
+                            <h2 ion-text class="text-white bold ">{{pizza.nombre}}</h2>
+                            <p ion-text color="white">
+                                <strong>Tamaño: </strong> {{pizza.tamano}}</p>
+                        </ion-item>
+                    </ion-list>
+                    <ion-item>
+                        <ion-row center>
+                            <p item-start ion-text color="secondary_red">
+                                <strong>Cantidad: </strong>
+                            </p>
+                            <ion-col width-20 text-center>{{pizza.cantidad}}</ion-col>
+                        </ion-row>
+                    </ion-item>
+                </div>
+            </ion-item>
+        </ion-list>-->
+
+
+        <!-- LISTA DE COMBOS-->
+
+        <ion-card *ngIf="combos.length != 0 " class="formato-card-secondary" >
+                <div no-padding name class="formato-titulo-main">
+                        <span style=" display: flex; justify-content:center; width: 100%;">
+                            COMBOS DE LA SEMANA
+                        </span>
+                    </div>
+            <ion-grid>
+                <ion-row justify-content-center align-items-center>
+                    <ion-col *ngFor="let combo of combos" col-12>
+                        <ion-card class="formato-card-terceary">
+                            <button float-right no-padding
+                                style="width: 10%; height: 10%; color: #1ABC9C; height: 15%; margin-top:1%; margin-right:0%;"
+                                ion-button clear small icon-start (click)="eliminarElemento(combo , 'COMBO')">
+                                <img class="imagen-boton" src="../assets/imgs/eliminado.png" />
+                            </button>
+                            <ion-card-content>
+                                <img class="imagen-promo-tamano" src="{{combo.IMAGEN_URL}}" />
+                                <div no-padding name class="formato-titulo">
+                                    <span style=" display: flex; justify-content:center; width: 100%;">
+                                        {{combo.NOMBRE}}
+                                    </span>
+                                </div>
+                                <!--<ion-card-title class="formato-fuente">
+                                    {{combo.NOMBRE}}
+                                </ion-card-title>-->
+
+                                <div no-padding name class="formato-detalle">
+                                    <span style=" display: flex; justify-content:center; width: 100%;">
+                                        Precio: ${{combo.COSTO}}
+                                    </span>
+                                </div><br>
+
+                                <div no-padding name class="formato-detalle">
+                                    <span
+                                        style=" display: flex; justify-content:center; width: 100%; margin-bottom: 0%;">
+                                        PIZZAS:
+                                    </span>
+                                </div>
+                                <ion-grid>
+                                    <ion-row justify-content-center align-items-center>
+                                        <ion-col *ngFor="let pizza of combo.PIZZAS" col-12>
+                                            <ion-card class="formato-card-quarte">
+                                                <img *ngIf="pizza.imgUrl != null" class="imagen-pizza-card" src="{{pizza.imgUrl}}" />
+                                                <img *ngIf="pizza.imgUrl == null" class="imagen-pizza-card" src="../assets/imgs/pizzabase.jpg" />
+                                                <div no-padding name class="formato-titulo-second">
+                                                    <span style=" display: flex; justify-content:center; width: 100%;">
+                                                        {{pizza.nombre}}
+                                                    </span>
+                                                </div>
+                                                <div *ngIf="pizza.nombre != 'Pizza Uno' || pizza.nombre != 'Pizza Dos' || pizza.nombre != 'Pizza Tres' || pizza.nombre != 'Pizza Cuatro'" no-padding name class="formato-detalle-second">
+                                                    <span  style=" display: flex; justify-content:center; width: 100%;">
+                                                        Categoria: {{pizza.tamano}}
+                                                    </span>
+                                                </div>
+                                                <div *ngIf="pizza.nombre == 'Pizza Uno' || pizza.nombre == 'Pizza Dos' || pizza.nombre == 'Pizza Tres' || pizza.nombre == 'Pizza Cuatro'" no-padding name class="formato-detalle-second">
+                                                    <span style=" display: flex; justify-content:center; width: 100%;">
+                                                        Tamaño: {{pizza.tamano.nombre}}
+                                                    </span>
+                                                </div>
+                                                <div *ngIf="pizza.ingredientes != null">
+                                                <div no-padding name class="formato-detalle-second">
+                                                    <span style=" display: flex; justify-content:center; width: 100%; font-weight: 600;">
+                                                        Ingredientes:
+                                                    </span>
+                                                </div>
+                                            <div *ngFor="let ingrediente of pizza.ingredientes" no-padding name class="formato-detalle-second">
+                                                    <span style=" display: flex; justify-content:center; width: 100%;">
+                                                            {{ingrediente.nombre}}
+                                                    </span>
+                                                </div>
+                                            </div>
+                                                <div no-padding name class="formato-detalle-second"
+                                                    style="margin-bottom: 3%;">
+                                                    <span style=" display: flex; justify-content:center; width: 100%;">
+                                                        Cantidad: {{pizza.cantidad}}
+                                                    </span>
+                                                </div>
+                                            </ion-card>
+                                        </ion-col>
+                                    </ion-row>
+                                </ion-grid>
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card>
+        <!--
+        <ion-list>
+            <ion-item *ngFor="let combo of combos">
+                <div class="card round">
+                    <ion-list no-margin>
+                        <ion-item class="primary-bg">
+                            <ion-avatar item-start>
+                                <img src="{{combo.IMAGEN_URL}}">
+                            </ion-avatar>
+                            <ion-icon color="white" item-end name="trash" (click)="eliminarElemento(combo , 'COMBO')">
+                            </ion-icon>
+                            <h2 ion-text class="text-white bold ">{{combo.NOMBRE}}</h2>
+                        </ion-item>
+                    </ion-list>
+                    <ion-item>
+                        <ion-row center>
+                            <p item-start ion-text color="secondary_red">
+                                <strong>Cantidad: </strong>
+                            </p>
+                            <ion-col width-30 text-center>
+                                <ion-icon name="remove-circle" class="text-2x" tappable
+                                    (click)="disminuirCantidad(combo)" [hidden]="combo.cantidad < 2 "
+                                    color="secondary_red"></ion-icon>
+                            </ion-col>
+                            <ion-col width-20 text-center>{{combo.CANTIDAD}}</ion-col>
+                            <ion-col width-30 text-center>
+                                <ion-icon name="add-circle" class="text-2x" tappable (click)="aumentarCantidad(combo)"
+                                    color="secondary_red"></ion-icon>
+                            </ion-col>
+                            <ion-col width-20 text-center>
+                                <h2 item-start ion-text color="secondary_red">
+                                    <strong>${{combo.COSTO * combo.cantidad | number : '1.2-2'}}</strong>
+                                </h2>
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                </div>
+            </ion-item>
+        </ion-list> -->
+
+   <!--  LISTA DE ADICIONALES (BEBIDAS Y ACOMPAÑANTES)--> 
+
+        <ion-card  *ngIf="combinacion.adicionales.length != 0 " class="formato-card-secondary">
+                <div no-padding name class="formato-titulo-main">
+                        <span style=" display: flex; justify-content:center; width: 100%;">
+                            ACOMPAÑANTES
+                        </span>
+                    </div>
+            <ion-grid>
+                <ion-row justify-content-center align-items-center>
+                    <ion-col *ngFor="let adicional of combinacion.adicionales" col-12>
+                        <ion-card class="formato-card-terceary">
+                            <button float-right no-padding
+                                style="width: 10%; height: 10%; color: #1ABC9C; height: 15%; margin-top:1%; margin-right:0%;"
+                                ion-button clear small icon-start (click)="eliminarElemento(adicional , 'ADICIONAL')">
+                                <img class="imagen-boton" src="../assets/imgs/eliminado.png" />
+                            </button>
+                            <ion-card-content>
+                                <img class="imagen-promo-tamano-card" src="{{adicional.imagenUrl}}" />
+                                <div no-padding name class="formato-titulo-second">
+                                    <span style=" display: flex; justify-content:center; width: 100%;">
+                                        {{adicional.nombre}}
+                                    </span>
+                                </div><br>
+                                <ion-row center>
+                                    <p item-start ion-text color="secondary_red">
+                                        <strong>Cantidad: </strong>
+                                    </p>
+                                    <ion-col width-20 text-center>
+                                        <ion-icon name="remove-circle" class="text-2x" tappable
+                                            (click)="disminuirCantidad(adicional)" [hidden]="adicional.cantidad < 2 "
+                                            color="secondary_red"></ion-icon>
+                                    </ion-col>
+                                    <ion-col width-10 text-center>{{adicional.cantidad}}</ion-col>
+                                    <ion-col width-20 text-center>
+                                        <ion-icon name="add-circle" class="text-2x" tappable
+                                            (click)="aumentarCantidad(adicional)" color="secondary_red"></ion-icon>
+                                    </ion-col>
+                                    <ion-col width-20 text-center>
+                                        <h2 item-start ion-text color="secondary_red">
+                                            <strong>${{adicional.costoBase * adicional.cantidad | number : '1.2-2'}}</strong>
+                                        </h2>
+                                    </ion-col>
+                                </ion-row>
+                            </ion-card-content>
+                        </ion-card>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card>
+    <!--
+        <ion-list>
+            <ion-item *ngFor="let adicional of combinacion.adicionales">
+                <div class="card round">
+                    <ion-list no-margin>
+                        <ion-item class="primary-bg">
+                            <ion-avatar item-start>
+                                <img src="{{adicional.imagenUrl}}">
+                            </ion-avatar>
+                            <ion-icon color="white" item-end name="trash"
+                                (click)="eliminarElemento(adicional , 'ADICIONAL')"></ion-icon>
+                            <h2 ion-text class="text-white bold ">{{adicional.nombre}}</h2>
+                        </ion-item>
+                    </ion-list>
+                    <ion-item>
+                        <ion-row center>
+                            <p item-start ion-text color="secondary_red">
+                                <strong>Cantidad: </strong>
+                            </p>
+                            <ion-col width-30 text-center>
+                                <ion-icon name="remove-circle" class="text-2x" tappable
+                                    (click)="disminuirCantidad(adicional)" [hidden]="adicional.cantidad < 2 "
+                                    color="secondary_red"></ion-icon>
+                            </ion-col>
+                            <ion-col width-20 text-center>{{adicional.cantidad}}</ion-col>
+                            <ion-col width-30 text-center>
+                                <ion-icon name="add-circle" class="text-2x" tappable
+                                    (click)="aumentarCantidad(adicional)" color="secondary_red"></ion-icon>
+                            </ion-col>
+                            <ion-col width-20 text-center>
+                                <h2 item-start ion-text color="secondary_red">
+                                    <strong>${{adicional.costoBase * adicional.cantidad | number : '1.2-2'}}</strong>
+                                </h2>
+                            </ion-col>
+                        </ion-row>
+                    </ion-item>
+                </div>
+            </ion-item>
+        </ion-list>-->
+
+        <h4 *ngIf="combinacion.pizzas.length == 0 && combinacion.adicionales.length ==0 && tradicionales.length ==0 && combos.length ==0 "
+            text-center>El resumen esta vacio</h4>
+    </ion-card>
+</ion-content>
+<ion-footer>
+    <ion-fab bottom right #fab>
+        <button ion-fab color="secondary_red">
+            <ion-icon name="add"></ion-icon>
+        </button>
+        <ion-fab-list side="top">
+            <button ion-fab (click)="anadirPizza(fab)">
+                <ion-icon color="green" name="md-pizza"></ion-icon>
+                <div class="label green-bg">
+                    <strong>Nueva Pizza</strong>
+                </div>
+            </button>
+            <button ion-fab (click)="anadirPizzaFav(fab)">
+                <ion-icon color="green" name="md-pizza"></ion-icon>
+                <div class="label green-bg" dir="rtl">
+                    <strong>Pizza Favorita</strong>
+                </div>
+            </button>
+            <button ion-fab (click)="anadirPizzaTradicional(fab)">
+                <ion-icon color="green" name="md-pizza"></ion-icon>
+                <div class="label green-bg" dir="rtl">
+                    <strong>Pizza Gourmet</strong>
+                </div>
+            </button>
+            <button ion-fab (click)="anadirCombo(fab)">
+                <ion-icon color="green" name="md-pizza"></ion-icon>
+                <div class="label green-bg" dir="rtl">
+                    <strong>Combos de la semana</strong>
+                </div>
+            </button>
+            <button ion-fab (click)="anadirAdicional(fab)">
+                <ion-icon color="green" name="md-ice-cream"></ion-icon>
+                <div class="label green-bg" dir="rtl">
+                    <strong>Adicional</strong>
+                </div>
+            </button>
+        </ion-fab-list>
+    </ion-fab>
+</ion-footer>

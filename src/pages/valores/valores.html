@@ -1,0 +1,263 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Detalles de Facturación</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-title>Detalles de Compra</ion-title>
+
+  <!-- LISTA DE PIZZAS  -->
+  <ion-list>
+    <ion-item *ngFor="let pizza of pizzas">
+      <div class="card round">
+        <ion-list no-margin>
+          <ion-item class="primary-bg">
+            <ion-avatar item-start>
+              <img src="assets/imgs/pizza.png">
+            </ion-avatar>
+            <h2 *ngIf="pizza.nombre != null " ion-text class="text-white bold">{{pizza.nombre}}</h2>
+            <p *ngIf="pizza.masa != null" ion-text color="white">
+              <strong>Tamaño: </strong> {{pizza.tamano}}</p>
+            <p *ngIf="pizza.masa == null" ion-text color="white">
+              <strong>Tamaño: </strong> {{pizza.tamano.nombre}}</p>
+          </ion-item>
+        </ion-list>
+        <ion-row>
+          <ion-col width-60>
+            <div padding>
+              <h5 *ngIf="pizza.masa != null" ion-text color="secondary_red">
+                <strong>Masa: </strong> {{pizza.masa}}</h5>
+              <h5 *ngIf="pizza.masa != null" ion-text color="secondary_red">
+                <strong>Borde: </strong> {{pizza.borde}}</h5>
+            </div>
+          </ion-col>
+          <ion-col width-60>
+            <div padding>
+              <h5 ion-text color="secondary_red">
+                <strong>Ingredientes: </strong>
+              </h5>
+              <div *ngIf="pizza.masa != null">
+                <h5 *ngFor="let ingrediente of pizza.ingredientes" ion-text color="secondary_red">
+                  {{ingrediente}}
+                </h5>
+              </div>
+              <div *ngIf="pizza.masa == null">
+                <h5 *ngFor="let ingrediente of pizza.ingredientes" ion-text color="secondary_red">
+                  {{ingrediente.nombre}}
+                </h5>
+              </div>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-item>
+          <ion-row center>
+            <p item-start ion-text color="secondary_red">
+              <strong>Cantidad: </strong>
+            </p>
+            <ion-col width-20 text-center>{{pizza.cantidad}}</ion-col>
+            <ion-col width-20 text-center>
+              <h2 item-start *ngIf="pizza.masa != null" ion-text color="secondary_red">
+                <strong>${{pizza.costo * pizza.cantidad | number : '1.2-2'}}</strong>
+              </h2>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </div>
+    </ion-item>
+  </ion-list>
+  <!-- LISTA DE PIZZAS  PROMOCIONALES -->
+  <ion-list>
+    <ion-item *ngFor="let pizza of this.promocionales">
+      <div class="card round">
+        <ion-list no-margin>
+          <ion-item class="primary-bg">
+            <ion-avatar item-start>
+              <img src="assets/imgs/pizza.png">
+            </ion-avatar>
+            <h2 *ngIf="pizza.nombre == null " ion-text class="text-white bold">Pizza</h2>
+            <h2 *ngIf="pizza.nombre != null " ion-text class="text-white bold">{{pizza.nombre}}</h2>
+            <p ion-text color="white">
+              <strong>Tamaño: </strong> {{pizza.tamano.nombre}}</p>
+          </ion-item>
+        </ion-list>
+        <ion-row>
+          <ion-col width-60>
+            <div padding>
+              <h5 ion-text color="secondary_red">
+                <strong>Ingredientes: </strong>
+              </h5>
+              <h5 *ngFor="let ingrediente of pizza.ingredientes" ion-text color="secondary_red">
+                {{ingrediente.nombre}}
+              </h5>
+            </div>
+          </ion-col>
+        </ion-row>
+        <ion-item>
+          <ion-row center>
+            <p item-start ion-text color="secondary_red">
+              <strong>Cantidad: </strong>
+            </p>
+            <ion-col width-20 text-center>{{pizza.cantidad}}</ion-col>
+           <!-- <ion-col width-20 text-center>
+              <h2 item-start ion-text color="secondary_red">
+                <strong>${{pizza.costo * pizza.cantidad | number : '1.2-2'}}</strong>
+              </h2>
+            </ion-col>-->
+          </ion-row>
+        </ion-item>
+      </div>
+    </ion-item>
+  </ion-list>
+           <!-- LISTA DE PIZZAS TRADICIONALES POMOCIONALES (NO SE PUEDEN EDITAR)-->
+           <ion-list>
+            <ion-item *ngFor="let pizza of tradicionalesPromo">
+                <div class="card round">
+                    <ion-list no-margin>
+                        <ion-item class="primary-bg">
+                            <ion-avatar item-start>
+                                <img src="{{pizza.imgUrl}}">
+                            </ion-avatar>
+                            <h2 ion-text class="text-white bold ">{{pizza.nombre}}</h2>
+                            <p ion-text color="white">
+                                <strong>Tamaño: </strong> {{pizza.tamano}}</p>
+                        </ion-item>
+                    </ion-list>
+                    <ion-item>
+                        <ion-row center>
+                            <p item-start ion-text color="secondary_red">
+                                <strong>Cantidad: </strong>
+                            </p>
+                            <ion-col width-20 text-center>{{pizza.cantidad}}</ion-col>
+                        </ion-row>
+                    </ion-item>
+                </div>
+            </ion-item>
+        </ion-list>
+  <!--<ion-list>
+    <ion-item *ngFor="let combo of combos">
+      <div class="card round">
+        <ion-list no-margin>
+          <ion-item class="primary-bg">
+            <ion-avatar item-start>
+              <img src="{{combo.imagenUrl}}">
+            </ion-avatar>
+            <h2 ion-text class="text-white bold ">{{combo.nombre}}</h2>
+          </ion-item>
+        </ion-list>
+        <ion-item>
+          <ion-row center>
+            <p item-start ion-text color="secondary_red">
+              <strong>Cantidad: </strong>
+            </p>
+            <ion-col width-20 text-center>{{combo.cantidad}}</ion-col>
+            <ion-col width-20 text-center>
+              <h2 item-start ion-text color="secondary_red">
+                <strong>${{combo.costo * combo.cantidad | number : '1.2-2' }}</strong>
+              </h2>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </div>
+    </ion-item>
+  </ion-list>-->
+
+  <ion-list>
+    <ion-item *ngFor="let adicional of adicionales">
+      <div class="card round">
+        <ion-list no-margin>
+          <ion-item class="primary-bg">
+            <ion-avatar item-start>
+              <img src="{{adicional.imagenUrl}}">
+            </ion-avatar>
+            <h2 ion-text class="text-white bold ">{{adicional.nombre}}</h2>
+          </ion-item>
+        </ion-list>
+        <ion-item>
+          <ion-row center>
+            <p item-start ion-text color="secondary_red">
+              <strong>Cantidad: </strong>
+            </p>
+            <ion-col width-20 text-center>{{adicional.cantidad}}</ion-col>
+            <ion-col width-20 text-center>
+              <h2 item-start ion-text color="secondary_red">
+                <strong>${{adicional.costo * adicional.cantidad | number : '1.2-2' }}</strong>
+              </h2>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </div>
+    </ion-item>
+  </ion-list>
+  <br>
+  <ion-title>Detalles de Pago</ion-title>
+  <br>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        Subtotal
+      </ion-col>
+      <ion-col>
+        {{ costoTotal/1.12 | currency }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        IVA
+      </ion-col>
+      <ion-col>
+        {{ costoTotal-costoTotal/1.12 | currency }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Envio
+      </ion-col>
+      <ion-col>
+        {{ 0 | currency }}
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        Impuestos Pago
+      </ion-col>
+      <ion-col>
+        {{ 0 | currency }}
+      </ion-col>
+    </ion-row>
+    <div *ngIf="this.optativa != null">
+      <ion-row>
+        <ion-col>
+          Cupón
+        </ion-col>
+        <ion-col>
+          <ion-input [(ngModel)]="code" name="code" id="code" placeholder="Code"></ion-input>
+          <br>
+          <button ion-button (click)="consultaCodigo($event, code);">Aplicar</button>
+        </ion-col>
+      </ion-row>
+    </div>
+    <div *ngIf="this.optativa != null">
+      <ion-row>
+        <ion-col>
+          Descuento
+        </ion-col>
+        <ion-col>
+          {{ descuento | currency }}
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-grid>
+  <ion-card id="carrito-card22">
+    <ion-list>
+      <h1 id="carrito-heading2" style="color:#000000;">
+        Total: {{ costoTotal | currency }}
+      </h1>
+      <button id="carrito-button6" ion-button color="positive" (tap)="checkout()" block>
+        Pagar
+      </button>
+    </ion-list>
+  </ion-card>
+</ion-content>

@@ -1,0 +1,56 @@
+<!--
+  Generated template for the RegistroSocialPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<!--
+  Generated template for the RegistroFacebookPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Registro con Facebook</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="form-content">
+
+  <button ion-button block id="facebookButton" (click)="getFacebookData()">
+    <ion-icon name="logo-facebook"></ion-icon>&nbsp; Obtener datos de Facebook
+  </button>
+
+  <form class="form" [formGroup]="validations_form" (ngSubmit)="onSubmit(validations_form.value)">
+    <ion-item>
+      <ion-label floating color="primary">Contrasena</ion-label>
+      <ion-input [type]="passwordType" [(ngModel)]="dataUsuario.CONTRASENA" #contrasena formControlName="contrasena"></ion-input>
+      <ion-icon item-end [name]="passwordIcon" class="passwordIcon" (click)='hideShowPassword()'></ion-icon>
+    </ion-item>
+    <div class="validation-errors">
+      <ng-container *ngFor="let validation of validation_messages.contrasena">
+        <div class="error-message" *ngIf="validations_form.get('contrasena').hasError(validation.type) && (validations_form.get('contrasena').dirty || validations_form.get('contrasena').touched)">
+          {{ validation.message }}
+        </div>
+      </ng-container>
+    </div>
+    <ion-item>
+      <ion-label floating color="primary">Nombres</ion-label>
+      <ion-input [type]="text" [(ngModel)]="dataUsuario.NOMBRES" #nombres formControlName="nombres" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating color="primary">Apellidos</ion-label>
+      <ion-input [type]="text" [(ngModel)]="dataUsuario.APELLIDOS" #apellidos formControlName="apellidos" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating color="primary">Correo</ion-label>
+      <ion-input [type]="text" [(ngModel)]="dataUsuario.CORREO" #correo formControlName="correo" readonly></ion-input>
+    </ion-item>
+    <button ion-button full type="submit" [disabled]="!validations_form.valid">Guardar</button>
+    </form>
+    
+</ion-content>

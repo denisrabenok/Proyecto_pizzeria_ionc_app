@@ -1,0 +1,44 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Seleccion de Metodo de Pago
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+      <ion-col col-10 offset-1>
+          <ion-list>
+              <ion-item  padding-left *ngFor="let card of cards" (tap)="itemTapped(card)">
+
+                   <ion-label>
+                    <img width="40" [src]="card.icon">
+                    {{card.number}}<br>
+                    {{card.holder_name}}<br>
+                    {{card.expiry_month}}/{{card.expiry_year}}
+                </ion-label>
+                <ion-icon ios="ios-add-circle" md="md-add-circle" item-end></ion-icon>
+
+              </ion-item>
+
+
+              <label ion-item *ngIf="cards.length === 0" >
+                  <ion-avatar item-start>
+                      <img src="../../assets/imgs/card.png">
+                    </ion-avatar>
+                    <h2></h2>
+                    <p>No se han agregado tarjetas a esta cuenta</p>
+              </label>
+            </ion-list>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+
+    <div *ngIf="selectedItem" padding>
+      You navigated here from <b>{{selectedItem.title}}</b>
+    </div>
+  </ion-content>
